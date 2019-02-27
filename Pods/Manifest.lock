@@ -1,16 +1,20 @@
 PODS:
   - StanwoodCore (1.3.1)
+  - SwiftLint (0.29.1)
 
 DEPENDENCIES:
   - StanwoodCore
+  - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - StanwoodCore
+    - SwiftLint
 
 SPEC CHECKSUMS:
   StanwoodCore: ece1234bdfbc222817512ae16000d47fe32f94aa
+  SwiftLint: 6772320e40b52049053a518c17db9b0634a0b45a
 
-PODFILE CHECKSUM: 9b095cfd909867b36e7b25330fd6a7d59d95dcbb
+PODFILE CHECKSUM: 2db1bc4347086213af343db40f9f3190520979d7
 
 COCOAPODS: 1.5.3

@@ -7,6 +7,7 @@ inhibit_all_warnings!
 
 def install_pods
     pod 'StanwoodCore'
+    pod 'SwiftLint'
 end
 
 target 'Stanwood-assignment' do
