@@ -7,20 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78084D602226BFF000674BD8 /* ReposListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78084D582226BFF000674BD8 /* ReposListViewController.storyboard */; };
 		78100B8A2226B5BF0006D870 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78100B892226B5BF0006D870 /* AppDelegate.swift */; };
 		78100B912226B5C00006D870 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78100B902226B5C00006D870 /* Assets.xcassets */; };
 		78100B942226B5C00006D870 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78100B922226B5C00006D870 /* LaunchScreen.storyboard */; };
+		7859C7F72227000B00505AB8 /* NetworkingTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7F62227000B00505AB8 /* NetworkingTransport.swift */; };
+		7859C7F9222700CE00505AB8 /* ReposLoadingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7F8222700CE00505AB8 /* ReposLoadingService.swift */; };
+		7859C7FF2227139400505AB8 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7FE2227139400505AB8 /* Repository.swift */; };
+		7859C801222713BF00505AB8 /* RepositorySearchPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C800222713BF00505AB8 /* RepositorySearchPayload.swift */; };
+		7859C80622271AE600505AB8 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C80522271AE600505AB8 /* RepoCell.swift */; };
+		7859C80922271DD000505AB8 /* Int+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C80822271DD000505AB8 /* Int+Additions.swift */; };
 		B3B0D60E76D3D663994B0C71 /* Pods_Stanwood_assignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656D3A72E17C100B0B08993F /* Pods_Stanwood_assignment.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		293BA13C0A8CC9B6ED6B2A4F /* Pods-Stanwood-assignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stanwood-assignment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stanwood-assignment/Pods-Stanwood-assignment.debug.xcconfig"; sourceTree = "<group>"; };
 		656D3A72E17C100B0B08993F /* Pods_Stanwood_assignment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stanwood_assignment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78084D582226BFF000674BD8 /* ReposListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReposListViewController.storyboard; sourceTree = "<group>"; };
 		78100B862226B5BF0006D870 /* Stanwood-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stanwood-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78100B892226B5BF0006D870 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78100B902226B5C00006D870 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78100B932226B5C00006D870 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78100B952226B5C00006D870 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7859C7F12226C21900505AB8 /* Stanwood-assignment-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stanwood-assignment-Bridging-Header.h"; sourceTree = "<group>"; };
+		7859C7F62227000B00505AB8 /* NetworkingTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTransport.swift; sourceTree = "<group>"; };
+		7859C7F8222700CE00505AB8 /* ReposLoadingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposLoadingService.swift; sourceTree = "<group>"; };
+		7859C7FE2227139400505AB8 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		7859C800222713BF00505AB8 /* RepositorySearchPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchPayload.swift; sourceTree = "<group>"; };
+		7859C80522271AE600505AB8 /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
+		7859C80822271DD000505AB8 /* Int+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Additions.swift"; sourceTree = "<group>"; };
 		D7DD8FE39AEC8A73B0432649 /* Pods-Stanwood-assignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stanwood-assignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stanwood-assignment/Pods-Stanwood-assignment.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -42,6 +57,16 @@
 				656D3A72E17C100B0B08993F /* Pods_Stanwood_assignment.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		78084D542226BFD600674BD8 /* ReposList */ = {
+			isa = PBXGroup;
+			children = (
+				7859C80422271ADB00505AB8 /* Views */,
+				7859C7FD2227137E00505AB8 /* Models */,
+				78084D582226BFF000674BD8 /* ReposListViewController.storyboard */,
+			);
+			path = ReposList;
 			sourceTree = "<group>";
 		};
 		78100B7D2226B5BF0006D870 = {
@@ -102,6 +127,8 @@
 		78100B9E2226B65E0006D870 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				7859C80722271DC000505AB8 /* Utils */,
+				7859C7F52227000000505AB8 /* Networking */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -109,6 +136,7 @@
 		78100B9F2226B6710006D870 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
+				78084D542226BFD600674BD8 /* ReposList */,
 			);
 			path = UserStories;
 			sourceTree = "<group>";
@@ -117,8 +145,43 @@
 			isa = PBXGroup;
 			children = (
 				78100B952226B5C00006D870 /* Info.plist */,
+				7859C7F12226C21900505AB8 /* Stanwood-assignment-Bridging-Header.h */,
 			);
 			path = "Supporting-files";
+			sourceTree = "<group>";
+		};
+		7859C7F52227000000505AB8 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7859C7F62227000B00505AB8 /* NetworkingTransport.swift */,
+				7859C7F8222700CE00505AB8 /* ReposLoadingService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		7859C7FD2227137E00505AB8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7859C7FE2227139400505AB8 /* Repository.swift */,
+				7859C800222713BF00505AB8 /* RepositorySearchPayload.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7859C80422271ADB00505AB8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7859C80522271AE600505AB8 /* RepoCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7859C80722271DC000505AB8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7859C80822271DD000505AB8 /* Int+Additions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		A8F67207862070C827433A22 /* Pods */ = {
@@ -165,6 +228,7 @@
 				TargetAttributes = {
 					78100B852226B5BF0006D870 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -192,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78100B942226B5C00006D870 /* LaunchScreen.storyboard in Resources */,
+				78084D602226BFF000674BD8 /* ReposListViewController.storyboard in Resources */,
 				78100B912226B5C00006D870 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,7 +332,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7859C801222713BF00505AB8 /* RepositorySearchPayload.swift in Sources */,
+				7859C80922271DD000505AB8 /* Int+Additions.swift in Sources */,
+				7859C80622271AE600505AB8 /* RepoCell.swift in Sources */,
 				78100B8A2226B5BF0006D870 /* AppDelegate.swift in Sources */,
+				7859C7FF2227139400505AB8 /* Repository.swift in Sources */,
+				7859C7F72227000B00505AB8 /* NetworkingTransport.swift in Sources */,
+				7859C7F9222700CE00505AB8 /* ReposLoadingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +477,7 @@
 			baseConfigurationReference = 293BA13C0A8CC9B6ED6B2A4F /* Pods-Stanwood-assignment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/Stanwood-assignment/Supporting-files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -414,6 +486,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Rafael-Kayumov.Stanwood-assignment";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Stanwood-assignment/Supporting-files/Stanwood-assignment-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -424,6 +498,7 @@
 			baseConfigurationReference = D7DD8FE39AEC8A73B0432649 /* Pods-Stanwood-assignment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/Stanwood-assignment/Supporting-files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -432,6 +507,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Rafael-Kayumov.Stanwood-assignment";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Stanwood-assignment/Supporting-files/Stanwood-assignment-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
