@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let kItemHeight: CGFloat = 50
+
 class ReposListViewController: UICollectionViewController {
 
     weak var dataProvider: ReposListViewDataProvider!
@@ -15,7 +17,9 @@ class ReposListViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         registerCells()
+        setupCollectionViewLayout()
 
         output.onViewReady()
     }
@@ -51,6 +55,12 @@ private extension ReposListViewController {
 
     func registerCells() {
         collectionView.register(cellType: RepoCell.self)
+    }
+
+    func setupCollectionViewLayout() {
+        guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        flowLayout.scrollDirection = .vertical
+        flowLayout.itemSize = CGSize(width: view.bounds.width, height: kItemHeight)
     }
 }
 

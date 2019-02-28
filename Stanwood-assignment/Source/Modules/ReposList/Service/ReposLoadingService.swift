@@ -20,19 +20,22 @@ class ReposLoadingService {
     func fetchMostTrendingForPeriod(_ period: CreationPeriod, completion: @escaping ReposFetchingCompletion) {
         transport.query(Route.list(creationPeriod: period)) { data, _, error in
             guard error == nil,
-                let data = data,
-                let reposPayload = try? JSONDecoder().decode(RepositorySearchPayload.self, from: data) else {
+                let data = data else {
                     completion(nil, error)
                     return
             }
 
-            completion(reposPayload.items, nil)
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            let reposPayload = try? decoder.decode(RepositorySearchPayload.self, from: data)
+
+            completion(reposPayload?.items, nil)
         }
     }
 }
 
-private let kBaseURLString = "http://api.github.com/"
-private let kSearchReposPath = "search/repositories/"
+private let kBaseURLString = "api.github.com"
+private let kSearchReposPath = "/search/repositories"
 
 private let kDefaultQueryParams = [
     "sort": "stars",
@@ -62,18 +65,34 @@ extension ReposLoadingService {
             switch self {
             case .list(let period):
                 let periodQueryParams = ["q": period.queryValue]
-                return kDefaultQueryParams.merging(periodQueryParams) { (_, new) in new }
+                return periodQueryParams.merging(kDefaultQueryParams) { (_, new) in new }
             }
         }
     }
 
-    enum CreationPeriod: String {
-        case day = "d"
-        case week = "w"
-        case month = "m"
+    enum CreationPeriod {
+        case day
+        case week
+        case month
+
+        var calendarInterval: Calendar.Component {
+            switch self {
+            case .day:
+                return Calendar.Component.day
+            case .week:
+                return Calendar.Component.weekOfMonth
+            case .month:
+                return Calendar.Component.month
+            }
+        }
+
+        var thresholdDate: Date {
+            return Calendar.current.date(byAdding: calendarInterval, value: -1, to: Date())!
+        }
 
         var queryValue: String {
-            return "created:>`date -v-1\(rawValue) '+%Y-%m-%d'`"
+            let dateString = ISO8601DateFormatter().string(from: thresholdDate)
+            return "created:>" + dateString
         }
     }
 }

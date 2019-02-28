@@ -12,6 +12,7 @@ class FetchReposPresenter {
 
     private let reposLoadingService: ReposLoadingService
     private unowned var view: FetchReposViewInput
+    private var repositoryList = RepositoryList()
 
     init(reposLoadingService: ReposLoadingService, view: FetchReposViewInput) {
         self.reposLoadingService = reposLoadingService
@@ -19,23 +20,57 @@ class FetchReposPresenter {
     }
 }
 
+// MARK: Methods
+
 private extension FetchReposPresenter {
+
+    func populateView() {
+        view.reloadData()
+    }
 }
+
+// MARK: Data loading
+
+private extension FetchReposPresenter {
+
+    typealias RepositoryListLoadCompletion = ([Repository]?) -> Void
+
+    func loadReposListHead() {
+        loadReposListHeadWithCompletion {
+            guard let validRepos = $0 else { return }
+
+            DispatchQueue.main.async {
+                self.repositoryList.applyRepos(validRepos)
+                self.populateView()
+            }
+        }
+    }
+
+    func loadReposListHeadWithCompletion(_ completion: @escaping RepositoryListLoadCompletion) {
+        reposLoadingService.fetchMostTrendingForPeriod(.day) { repos, _ in
+            completion(repos)
+        }
+    }
+}
+
+// MARK: Data provider
 
 extension FetchReposPresenter: FetchReposViewDataProvider {
     func repoForIndex(_ index: Int) -> Repository? {
-        return nil
+        return repositoryList[index]
     }
 
     var reposCount: Int {
-        return 0
+        return repositoryList.count
     }
 }
+
+// MARK: View output handling
 
 extension FetchReposPresenter: FetchReposViewOutput {
 
     func onViewReady() {
-
+        loadReposListHead()
     }
 
     func onCellSelectAtIndex(_ index: Int) {

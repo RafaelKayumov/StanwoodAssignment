@@ -13,7 +13,7 @@ struct Repository: Decodable {
     let id: Int
     let name: String
     let url: URL?
-    let description: String
+    let description: String?
     let stargazersCount: Int
     let forks: Int
     let createdAt: Date

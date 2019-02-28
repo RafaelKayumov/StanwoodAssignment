@@ -26,6 +26,7 @@
 		7835C1BB22280D8700DA74EE /* FetchReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1BA22280D8700DA74EE /* FetchReposViewController.swift */; };
 		7835C1BD22280F4300DA74EE /* RepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7835C1BC22280F4300DA74EE /* RepoCell.xib */; };
 		7835C1BF222814BD00DA74EE /* UICollectionViewController+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1BE222814BD00DA74EE /* UICollectionViewController+Defaults.swift */; };
+		7835C1C1222818DA00DA74EE /* RepositoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1C0222818DA00DA74EE /* RepositoryList.swift */; };
 		7859C7F72227000B00505AB8 /* NetworkingTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7F62227000B00505AB8 /* NetworkingTransport.swift */; };
 		7859C7F9222700CE00505AB8 /* ReposLoadingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7F8222700CE00505AB8 /* ReposLoadingService.swift */; };
 		7859C7FF2227139400505AB8 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7FE2227139400505AB8 /* Repository.swift */; };
@@ -59,6 +60,7 @@
 		7835C1BA22280D8700DA74EE /* FetchReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchReposViewController.swift; sourceTree = "<group>"; };
 		7835C1BC22280F4300DA74EE /* RepoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoCell.xib; sourceTree = "<group>"; };
 		7835C1BE222814BD00DA74EE /* UICollectionViewController+Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewController+Defaults.swift"; sourceTree = "<group>"; };
+		7835C1C0222818DA00DA74EE /* RepositoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryList.swift; sourceTree = "<group>"; };
 		7859C7F12226C21900505AB8 /* Stanwood-assignment-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stanwood-assignment-Bridging-Header.h"; sourceTree = "<group>"; };
 		7859C7F62227000B00505AB8 /* NetworkingTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTransport.swift; sourceTree = "<group>"; };
 		7859C7F8222700CE00505AB8 /* ReposLoadingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposLoadingService.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 			children = (
 				7859C7FE2227139400505AB8 /* Repository.swift */,
 				7859C800222713BF00505AB8 /* RepositorySearchPayload.swift */,
+				7835C1C0222818DA00DA74EE /* RepositoryList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7835C1982227FB4800DA74EE /* AppAssembly.swift in Sources */,
+				7835C1C1222818DA00DA74EE /* RepositoryList.swift in Sources */,
 				7859C801222713BF00505AB8 /* RepositorySearchPayload.swift in Sources */,
 				7835C1A32228019A00DA74EE /* FetchReposViewInput.swift in Sources */,
 				7835C1B0222805C300DA74EE /* ReposListViewOutput.swift in Sources */,

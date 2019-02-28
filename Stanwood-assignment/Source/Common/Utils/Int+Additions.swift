@@ -10,6 +10,6 @@ import Foundation
 
 extension Int {
     var kFormatted: String {
-        return String(format: self >= 1000 ? "$%.0fK" : "$%.0f", (self >= 1000 ? self/1000 : self))
+        return String(format: self >= 1000 ? "%dK" : "%d", (self >= 1000 ? self/1000 : self))
     }
 }

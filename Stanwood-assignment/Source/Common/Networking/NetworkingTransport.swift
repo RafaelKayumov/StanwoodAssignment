@@ -22,6 +22,7 @@ extension RouteProviding {
         var components = URLComponents()
         components.scheme = kURLScheme
         components.host = host
+        components.path = path
         components.queryItems = queryParams.compactMap {
             return URLQueryItem(name: $0.key, value: $0.value)
         }
@@ -40,7 +41,8 @@ class NetworkingTransport {
 
     func query(_ route: RouteProviding, with completion: @escaping DataTaskCompletion) {
         var request = URLRequest(url: route.url)
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         performRequest(request, with: completion)
     }
