@@ -8,6 +8,7 @@ inhibit_all_warnings!
 def install_pods
     pod 'StanwoodCore'
     pod 'SwiftLint'
+    pod 'Kingfisher'
 end
 
 target 'Stanwood-assignment' do
