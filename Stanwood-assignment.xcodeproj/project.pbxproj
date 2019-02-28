@@ -27,6 +27,11 @@
 		7835C1BD22280F4300DA74EE /* RepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7835C1BC22280F4300DA74EE /* RepoCell.xib */; };
 		7835C1BF222814BD00DA74EE /* UICollectionViewController+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1BE222814BD00DA74EE /* UICollectionViewController+Defaults.swift */; };
 		7835C1C1222818DA00DA74EE /* RepositoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1C0222818DA00DA74EE /* RepositoryList.swift */; };
+		7835C1C722283D9E00DA74EE /* EllipseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1C622283D9E00DA74EE /* EllipseView.swift */; };
+		7835C1C922283F7000DA74EE /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1C822283F7000DA74EE /* LineView.swift */; };
+		7835C1CC222843CF00DA74EE /* SwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1CB222843CF00DA74EE /* SwitcherView.swift */; };
+		7835C1CE222866CD00DA74EE /* PeriodSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1CD222866CD00DA74EE /* PeriodSelectionView.swift */; };
+		7835C1D0222866F100DA74EE /* PeriodSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7835C1CF222866F100DA74EE /* PeriodSelectionView.xib */; };
 		7859C7F72227000B00505AB8 /* NetworkingTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7F62227000B00505AB8 /* NetworkingTransport.swift */; };
 		7859C7F9222700CE00505AB8 /* ReposLoadingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7F8222700CE00505AB8 /* ReposLoadingService.swift */; };
 		7859C7FF2227139400505AB8 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7FE2227139400505AB8 /* Repository.swift */; };
@@ -61,6 +66,11 @@
 		7835C1BC22280F4300DA74EE /* RepoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoCell.xib; sourceTree = "<group>"; };
 		7835C1BE222814BD00DA74EE /* UICollectionViewController+Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewController+Defaults.swift"; sourceTree = "<group>"; };
 		7835C1C0222818DA00DA74EE /* RepositoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryList.swift; sourceTree = "<group>"; };
+		7835C1C622283D9E00DA74EE /* EllipseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EllipseView.swift; sourceTree = "<group>"; };
+		7835C1C822283F7000DA74EE /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		7835C1CB222843CF00DA74EE /* SwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitcherView.swift; sourceTree = "<group>"; };
+		7835C1CD222866CD00DA74EE /* PeriodSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSelectionView.swift; sourceTree = "<group>"; };
+		7835C1CF222866F100DA74EE /* PeriodSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeriodSelectionView.xib; sourceTree = "<group>"; };
 		7859C7F12226C21900505AB8 /* Stanwood-assignment-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stanwood-assignment-Bridging-Header.h"; sourceTree = "<group>"; };
 		7859C7F62227000B00505AB8 /* NetworkingTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTransport.swift; sourceTree = "<group>"; };
 		7859C7F8222700CE00505AB8 /* ReposLoadingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposLoadingService.swift; sourceTree = "<group>"; };
@@ -192,6 +202,7 @@
 		7835C19A222800C400DA74EE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				7835C1CA222843C200DA74EE /* Views */,
 				7835C1B1222806A200DA74EE /* Protocols */,
 			);
 			path = Common;
@@ -267,6 +278,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		7835C1CA222843C200DA74EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7835C1CB222843CF00DA74EE /* SwitcherView.swift */,
+				7835C1CD222866CD00DA74EE /* PeriodSelectionView.swift */,
+				7835C1CF222866F100DA74EE /* PeriodSelectionView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7859C7F52227000000505AB8 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +319,8 @@
 		7859C80722271DC000505AB8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7835C1C822283F7000DA74EE /* LineView.swift */,
+				7835C1C622283D9E00DA74EE /* EllipseView.swift */,
 				7859C80822271DD000505AB8 /* Int+Additions.swift */,
 				7835C1BE222814BD00DA74EE /* UICollectionViewController+Defaults.swift */,
 			);
@@ -376,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78100B942226B5C00006D870 /* LaunchScreen.storyboard in Resources */,
+				7835C1D0222866F100DA74EE /* PeriodSelectionView.xib in Resources */,
 				78084D602226BFF000674BD8 /* ReposListViewController.storyboard in Resources */,
 				78100B912226B5C00006D870 /* Assets.xcassets in Resources */,
 				7835C1BD22280F4300DA74EE /* RepoCell.xib in Resources */,
@@ -457,6 +481,7 @@
 			files = (
 				7835C1982227FB4800DA74EE /* AppAssembly.swift in Sources */,
 				7835C1C1222818DA00DA74EE /* RepositoryList.swift in Sources */,
+				7835C1CC222843CF00DA74EE /* SwitcherView.swift in Sources */,
 				7859C801222713BF00505AB8 /* RepositorySearchPayload.swift in Sources */,
 				7835C1A32228019A00DA74EE /* FetchReposViewInput.swift in Sources */,
 				7835C1B0222805C300DA74EE /* ReposListViewOutput.swift in Sources */,
@@ -468,12 +493,15 @@
 				7835C1B3222806AF00DA74EE /* ViewOutput.swift in Sources */,
 				7835C1BF222814BD00DA74EE /* UICollectionViewController+Defaults.swift in Sources */,
 				7835C1962227F97500DA74EE /* AppCoordinator.swift in Sources */,
+				7835C1CE222866CD00DA74EE /* PeriodSelectionView.swift in Sources */,
 				7859C7FF2227139400505AB8 /* Repository.swift in Sources */,
 				7835C1A8222801D200DA74EE /* FetchReposPresenter.swift in Sources */,
+				7835C1C722283D9E00DA74EE /* EllipseView.swift in Sources */,
 				7835C1A5222801BA00DA74EE /* FetchReposViewDataProvider.swift in Sources */,
 				7835C19E2228014A00DA74EE /* FetchReposModuleInput.swift in Sources */,
 				7835C1BB22280D8700DA74EE /* FetchReposViewController.swift in Sources */,
 				7859C7F72227000B00505AB8 /* NetworkingTransport.swift in Sources */,
+				7835C1C922283F7000DA74EE /* LineView.swift in Sources */,
 				7835C1B5222809D600DA74EE /* ReposListViewInput.swift in Sources */,
 				7859C7F9222700CE00505AB8 /* ReposLoadingService.swift in Sources */,
 				7835C1AE2228055000DA74EE /* ReposListViewDataProvider.swift in Sources */,

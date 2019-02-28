@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let kItemHeight: CGFloat = 50
+private let kItemHeight: CGFloat = 72
 
 class ReposListViewController: UICollectionViewController {
 
@@ -49,6 +49,7 @@ extension ReposListViewController {
 }
 
 private extension ReposListViewController {
+
     func reloadTableData() {
         collectionView.reloadData()
     }
@@ -61,6 +62,8 @@ private extension ReposListViewController {
         guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.scrollDirection = .vertical
         flowLayout.itemSize = CGSize(width: view.bounds.width, height: kItemHeight)
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
     }
 }
 

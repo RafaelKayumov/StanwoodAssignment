@@ -24,7 +24,7 @@ private extension FetchReposViewController {
     // MARK: Methods
 
     func applyRefreshControl() {
-        self.refreshControl =  collectionView.setRefreshControl(self, with: #selector(onPullToRefresh))
+        self.refreshControl =  collectionView.setRefreshControl(self, with: #selector(onPullToRefresh), tintColor: UIColor.darkGray)
     }
 
     func refreshData() {

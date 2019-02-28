@@ -70,7 +70,7 @@ extension ReposLoadingService {
         }
     }
 
-    enum CreationPeriod {
+    enum CreationPeriod: Int {
         case day
         case week
         case month

@@ -19,7 +19,6 @@ class AppCoordinator {
         let navigationController =  UINavigationController(rootViewController: rootViewController)
 
         window.rootViewController = navigationController
-
         window.makeKeyAndVisible()
 
         self.navigationController = navigationController
