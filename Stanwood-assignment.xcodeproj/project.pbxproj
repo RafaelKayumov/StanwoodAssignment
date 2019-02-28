@@ -32,6 +32,10 @@
 		7835C1CC222843CF00DA74EE /* SwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1CB222843CF00DA74EE /* SwitcherView.swift */; };
 		7835C1CE222866CD00DA74EE /* PeriodSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1CD222866CD00DA74EE /* PeriodSelectionView.swift */; };
 		7835C1D0222866F100DA74EE /* PeriodSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7835C1CF222866F100DA74EE /* PeriodSelectionView.xib */; };
+		7835C1D822286D5800DA74EE /* RootTabControllerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1D722286D5800DA74EE /* RootTabControllerModule.swift */; };
+		7835C1DA2228705300DA74EE /* ReposListModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1D92228705300DA74EE /* ReposListModuleInput.swift */; };
+		7835C1DC2228744C00DA74EE /* RootTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1DB2228744C00DA74EE /* RootTabbarController.swift */; };
+		7835C1DE2228767B00DA74EE /* RootTabControllerViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1DD2228767B00DA74EE /* RootTabControllerViewOutput.swift */; };
 		7859C7F72227000B00505AB8 /* NetworkingTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7F62227000B00505AB8 /* NetworkingTransport.swift */; };
 		7859C7F9222700CE00505AB8 /* ReposLoadingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7F8222700CE00505AB8 /* ReposLoadingService.swift */; };
 		7859C7FF2227139400505AB8 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7FE2227139400505AB8 /* Repository.swift */; };
@@ -71,6 +75,10 @@
 		7835C1CB222843CF00DA74EE /* SwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitcherView.swift; sourceTree = "<group>"; };
 		7835C1CD222866CD00DA74EE /* PeriodSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSelectionView.swift; sourceTree = "<group>"; };
 		7835C1CF222866F100DA74EE /* PeriodSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeriodSelectionView.xib; sourceTree = "<group>"; };
+		7835C1D722286D5800DA74EE /* RootTabControllerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabControllerModule.swift; sourceTree = "<group>"; };
+		7835C1D92228705300DA74EE /* ReposListModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListModuleInput.swift; sourceTree = "<group>"; };
+		7835C1DB2228744C00DA74EE /* RootTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabbarController.swift; sourceTree = "<group>"; };
+		7835C1DD2228767B00DA74EE /* RootTabControllerViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabControllerViewOutput.swift; sourceTree = "<group>"; };
 		7859C7F12226C21900505AB8 /* Stanwood-assignment-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stanwood-assignment-Bridging-Header.h"; sourceTree = "<group>"; };
 		7859C7F62227000B00505AB8 /* NetworkingTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTransport.swift; sourceTree = "<group>"; };
 		7859C7F8222700CE00505AB8 /* ReposLoadingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposLoadingService.swift; sourceTree = "<group>"; };
@@ -183,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				7835C19A222800C400DA74EE /* Common */,
+				7835C1D222286B9100DA74EE /* RootTabController */,
 				78084D542226BFD600674BD8 /* ReposList */,
 				7835C19B2228011D00DA74EE /* FetchRepos */,
 				7835C19C2228012800DA74EE /* FavoriteRepos */,
@@ -258,6 +267,7 @@
 				7835C1AD2228055000DA74EE /* ReposListViewDataProvider.swift */,
 				7835C1AF222805C300DA74EE /* ReposListViewOutput.swift */,
 				7835C1B4222809D600DA74EE /* ReposListViewInput.swift */,
+				7835C1D92228705300DA74EE /* ReposListModuleInput.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -286,6 +296,16 @@
 				7835C1CF222866F100DA74EE /* PeriodSelectionView.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7835C1D222286B9100DA74EE /* RootTabController */ = {
+			isa = PBXGroup;
+			children = (
+				7835C1DD2228767B00DA74EE /* RootTabControllerViewOutput.swift */,
+				7835C1D722286D5800DA74EE /* RootTabControllerModule.swift */,
+				7835C1DB2228744C00DA74EE /* RootTabbarController.swift */,
+			);
+			path = RootTabController;
 			sourceTree = "<group>";
 		};
 		7859C7F52227000000505AB8 /* Networking */ = {
@@ -497,11 +517,15 @@
 				7859C7FF2227139400505AB8 /* Repository.swift in Sources */,
 				7835C1A8222801D200DA74EE /* FetchReposPresenter.swift in Sources */,
 				7835C1C722283D9E00DA74EE /* EllipseView.swift in Sources */,
+				7835C1DE2228767B00DA74EE /* RootTabControllerViewOutput.swift in Sources */,
 				7835C1A5222801BA00DA74EE /* FetchReposViewDataProvider.swift in Sources */,
 				7835C19E2228014A00DA74EE /* FetchReposModuleInput.swift in Sources */,
+				7835C1DA2228705300DA74EE /* ReposListModuleInput.swift in Sources */,
 				7835C1BB22280D8700DA74EE /* FetchReposViewController.swift in Sources */,
 				7859C7F72227000B00505AB8 /* NetworkingTransport.swift in Sources */,
 				7835C1C922283F7000DA74EE /* LineView.swift in Sources */,
+				7835C1DC2228744C00DA74EE /* RootTabbarController.swift in Sources */,
+				7835C1D822286D5800DA74EE /* RootTabControllerModule.swift in Sources */,
 				7835C1B5222809D600DA74EE /* ReposListViewInput.swift in Sources */,
 				7859C7F9222700CE00505AB8 /* ReposLoadingService.swift in Sources */,
 				7835C1AE2228055000DA74EE /* ReposListViewDataProvider.swift in Sources */,

@@ -9,8 +9,8 @@ import UIKit
 
 class AppCoordinator {
 
-    private static var navigationController: UINavigationController?
-    private static var window: UIWindow?
+    private(set) static var navigationController: UINavigationController?
+    private(set) static var window: UIWindow?
 
     static func setupUI() {
         let window = UIWindow()

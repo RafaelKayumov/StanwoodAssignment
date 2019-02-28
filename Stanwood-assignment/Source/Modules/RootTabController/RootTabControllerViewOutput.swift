@@ -1,5 +1,5 @@
 //
-//  FetchReposModuleInput.swift
+//  RootTabControllerViewOutput.swift
 //  Stanwood-assignment
 //
 //  Created by Rafael Kayumov on 28/02/2019.
@@ -8,5 +8,6 @@
 
 import Foundation
 
-protocol FetchReposModuleInput: ReposListModuleInput {
+protocol RootTabControllerViewOutput: class {
+    func onPeriodSelection(period: ReposLoadingService.CreationPeriod)
 }

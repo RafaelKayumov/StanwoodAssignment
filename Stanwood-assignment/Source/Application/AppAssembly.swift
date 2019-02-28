@@ -11,6 +11,7 @@ import UIKit
 class AppAssembly {
 
     private(set) static var fetchReposModule: FetchReposModuleInput?
+    private(set) static var rootTabbarControllerModule: RootTabControllerModule?
 
     static func instantiateFetchReposModuleAndReturnView() -> UIViewController {
         let fetchReposModuleEntities = assembleFetchReposModule()
@@ -23,7 +24,10 @@ class AppAssembly {
     }
 
     static func instantiateRootTabSelector() -> UITabBarController {
-        let rootTabbarController = UITabBarController()
+        let rootTabbarControllerEntities = assembleRootTabController()
+        rootTabbarControllerModule = rootTabbarControllerEntities.module
+        let rootTabbarController = rootTabbarControllerEntities.view
+
         let reposListView = instantiateFetchReposModuleAndReturnView()
         //let favoriteReposView = instantiateFavoritesReposModuleAndReturnView()
         rootTabbarController.viewControllers = [reposListView]
@@ -42,5 +46,13 @@ private extension AppAssembly {
         fetchReposView.applyDefaultSettings()
 
         return (module: fetchReposPresenter, view: fetchReposView)
+    }
+
+    static func assembleRootTabController() -> (module: RootTabControllerModule, view: UITabBarController) {
+        let tabbarController = RootTabbarController()
+        let rootTabControllerModule = RootTabControllerModule()
+        tabbarController.output = rootTabControllerModule
+
+        return (module: rootTabControllerModule, view: tabbarController)
     }
 }
