@@ -17,8 +17,8 @@ class ReposLoadingService {
         self.transport = transport
     }
 
-    func fetchMostTrendingForPeriod(_ period: Repository.CreationPeriod, completion: @escaping ReposFetchingCompletion) {
-        transport.query(Route.list(creationPeriod: period)) { data, urlResponse, error in
+    private func reposResponseDataHandler(with completion: @escaping ReposFetchingCompletion) -> NetworkingTransport.DataTaskCompletion {
+        return { data, urlResponse, error in
             guard error == nil,
                 let data = data else {
                     completion(nil, nil, error)
@@ -33,6 +33,14 @@ class ReposLoadingService {
 
             completion(reposPayload?.items, nextPageURL, nil)
         }
+    }
+
+    func fetchMostTrendingForPeriod(_ period: Repository.CreationPeriod, completion: @escaping ReposFetchingCompletion) {
+        transport.query(Route.list(creationPeriod: period), with: reposResponseDataHandler(with: completion))
+    }
+
+    func fetch(with url: URL, completion: @escaping ReposFetchingCompletion) {
+        transport.fetchDataWithURL(url, completion: reposResponseDataHandler(with: completion))
     }
 }
 

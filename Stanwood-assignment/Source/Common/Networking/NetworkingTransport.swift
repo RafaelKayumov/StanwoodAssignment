@@ -44,15 +44,15 @@ class NetworkingTransport {
     }
 
     func query(_ route: RouteProviding, with completion: @escaping DataTaskCompletion) {
-        var request = URLRequest(url: route.url)
+        fetchDataWithURL(route.url, completion: completion)
+    }
+
+    func fetchDataWithURL(_ url: URL, completion: @escaping DataTaskCompletion) {
+        var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("token \(kAuthToken)", forHTTPHeaderField: "Authorization")
 
-        performRequest(request, with: completion)
-    }
-
-    func fetchDataWithURL(_ url: URL, completion: @escaping DataTaskCompletion) {
         performRequest(URLRequest(url: url), with: completion)
     }
 }

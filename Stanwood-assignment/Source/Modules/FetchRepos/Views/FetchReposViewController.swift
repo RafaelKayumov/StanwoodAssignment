@@ -14,8 +14,6 @@ class FetchReposViewController: ReposListViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        applyRefreshControl()
     }
 }
 
@@ -23,19 +21,7 @@ private extension FetchReposViewController {
 
     // MARK: Methods
 
-    func applyRefreshControl() {
-        self.refreshControl =  collectionView.setRefreshControl(self, with: #selector(onPullToRefresh), tintColor: UIColor.darkGray)
-    }
-
-    func refreshData() {
-
-    }
-
     // MARK: Actions
-
-    @objc func onPullToRefresh() {
-        refreshData()
-    }
 }
 
 extension FetchReposViewController: FetchReposViewInput {
