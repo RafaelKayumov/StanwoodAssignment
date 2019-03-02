@@ -42,6 +42,7 @@ private extension AppAssembly {
         let reposLoadingService = ReposLoadingService()
         let fetchReposPresenter = FetchReposPresenter(reposLoadingService: reposLoadingService, view: fetchReposView)
         fetchReposView.output = fetchReposPresenter
+        fetchReposView.prefetchingOutput = fetchReposPresenter
         fetchReposView.dataProvider = fetchReposPresenter
         fetchReposView.applyDefaultSettings()
 

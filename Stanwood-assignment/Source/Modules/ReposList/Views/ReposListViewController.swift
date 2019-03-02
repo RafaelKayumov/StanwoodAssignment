@@ -9,6 +9,7 @@
 import UIKit
 
 private let kItemHeight: CGFloat = 72
+private let kUpcomingItemCellIdentifier = "UpcomingItemCellIdentifier"
 
 class ReposListViewController: UICollectionViewController {
 
@@ -28,15 +29,17 @@ class ReposListViewController: UICollectionViewController {
 extension ReposListViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataProvider.reposCount
+        return dataProvider.totalItemsCount
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeue(cellType: RepoCell.self, for: indexPath)
-        if let repository = dataProvider.repoForIndex(indexPath.item) {
+        if let repository = dataProvider.itemForIndex(indexPath.item) {
+            let cell = collectionView.dequeue(cellType: RepoCell.self, for: indexPath)
             cell.configureWithRepo(repository)
+            return cell
+        } else {
+            return collectionView.dequeueReusableCell(withReuseIdentifier: kUpcomingItemCellIdentifier, for: indexPath)
         }
-        return cell
     }
 }
 
@@ -56,6 +59,7 @@ private extension ReposListViewController {
 
     func registerCells() {
         collectionView.register(cellType: RepoCell.self)
+        collectionView.register(UINib(nibName: "UpcomingItemCell", bundle: nil), forCellWithReuseIdentifier: kUpcomingItemCellIdentifier)
     }
 
     func setupCollectionViewLayout() {

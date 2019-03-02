@@ -10,3 +10,7 @@ import Foundation
 
 protocol FetchReposViewOutput: ReposListViewOutput {
 }
+
+protocol PrefetchingOutput: class {
+    func didTriggerPrefetch(at indexes: [Int])
+}

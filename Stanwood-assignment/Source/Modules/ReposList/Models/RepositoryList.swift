@@ -12,14 +12,19 @@ struct RepositoryList {
 
     private var repos = [Repository]()
     private(set) var nextPageURL: URL?
+    var totalExisting = 0
 
     mutating func applyReposBatch(_ repos: [Repository], nextPageURL: URL?) {
-        self.repos = repos
+        self.repos.append(contentsOf: repos)
         self.nextPageURL = nextPageURL
     }
 
     var count: Int {
         return repos.count
+    }
+
+    var allLoaded: Bool {
+        return totalExisting == count
     }
 
     subscript(index: Int) -> Repository? {

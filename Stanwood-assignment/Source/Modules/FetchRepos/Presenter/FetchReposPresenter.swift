@@ -26,7 +26,7 @@ class FetchReposPresenter {
 private extension FetchReposPresenter {
 
     func populateView() {
-        view.reloadData()
+        view.reloadVisibleCells()
     }
 }
 
@@ -39,7 +39,7 @@ private extension FetchReposPresenter {
         case next(URL)
     }
 
-    typealias RepositoryListLoadCompletion = ([Repository]?, URL?) -> Void
+    typealias RepositoryListLoadCompletion = ([Repository]?, Int?, URL?) -> Void
 
     func loadReposListBatch() {
         var option: ReposListBatchLoadingOption
@@ -49,20 +49,26 @@ private extension FetchReposPresenter {
             option = .initial(.day)
         }
 
-        loadReposListBatch(with: option) { repos, nextPageURL in
+        loadReposListBatch(with: option) { repos, totalExisting, nextPageURL in
             guard let validRepos = repos else { return }
 
             DispatchQueue.main.async {
                 self.repositoryList.applyReposBatch(validRepos, nextPageURL: nextPageURL)
+                if case .initial = option, let totalExistingValid = totalExisting {
+                    self.repositoryList.totalExisting = totalExistingValid
+                }
                 self.populateView()
             }
         }
     }
 
     func loadReposListBatch(with option: ReposListBatchLoadingOption, completion: @escaping RepositoryListLoadCompletion) {
-        let loadingCompletion: ReposLoadingService.ReposFetchingCompletion = { repos, nextPageURL, _ in
-            completion(repos, nextPageURL)
+        let loadingCompletion: ReposLoadingService.ReposFetchingCompletion = { repos, totalExisting, nextPageURL, _ in
+            self.isLoadingInProgress = false
+            completion(repos, totalExisting, nextPageURL)
         }
+
+        isLoadingInProgress = true
         switch option {
         case .initial(let period):
             reposLoadingService.fetchMostTrendingForPeriod(period, completion: loadingCompletion)
@@ -72,15 +78,43 @@ private extension FetchReposPresenter {
     }
 }
 
+// MARK: Prefetch calculations
+
+private extension FetchReposPresenter {
+
+    func triggerNextBatchLoadIfNeeded(triggeredCellIndexes: [Int]) {
+        guard
+            !isLoadingInProgress,
+            repositoryList.nextPageURL != nil,
+            !repositoryList.allLoaded,
+            let lastIndex = triggeredCellIndexes.last,
+            repositoryList[lastIndex] == nil
+        else {
+            return
+        }
+
+        loadReposListBatch()
+    }
+}
+
 // MARK: Data provider
 
 extension FetchReposPresenter: FetchReposViewDataProvider {
-    func repoForIndex(_ index: Int) -> Repository? {
+    func itemForIndex(_ index: Int) -> Repository? {
         return repositoryList[index]
     }
 
-    var reposCount: Int {
-        return repositoryList.count
+    var totalItemsCount: Int {
+        return repositoryList.totalExisting
+    }
+}
+
+// MARK: Prefetching output handling
+
+extension FetchReposPresenter: PrefetchingOutput {
+
+    func didTriggerPrefetch(at indexes: [Int]) {
+        triggerNextBatchLoadIfNeeded(triggeredCellIndexes: indexes)
     }
 }
 
@@ -100,6 +134,5 @@ extension FetchReposPresenter: FetchReposViewOutput {
 extension FetchReposPresenter: FetchReposModuleInput {
 
     func applyCreationPeriod(_ creationPeriod: Repository.CreationPeriod) {
-        print("")
     }
 }

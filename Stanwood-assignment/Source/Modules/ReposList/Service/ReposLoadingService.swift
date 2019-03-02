@@ -10,7 +10,7 @@ import Foundation
 
 class ReposLoadingService {
 
-    typealias ReposFetchingCompletion = ([Repository]?, URL?, Error?) -> Void
+    typealias ReposFetchingCompletion = ([Repository]?, Int?, URL?, Error?) -> Void
 
     private let transport: NetworkingTransport
     init(transport: NetworkingTransport = NetworkingTransport()) {
@@ -21,7 +21,7 @@ class ReposLoadingService {
         return { data, urlResponse, error in
             guard error == nil,
                 let data = data else {
-                    completion(nil, nil, error)
+                    completion(nil, nil, nil, error)
                     return
             }
 
@@ -31,7 +31,7 @@ class ReposLoadingService {
 
             let nextPageURL = urlResponse?.nextPageURL
 
-            completion(reposPayload?.items, nextPageURL, nil)
+            completion(reposPayload?.items, reposPayload?.totalCount, nextPageURL, nil)
         }
     }
 

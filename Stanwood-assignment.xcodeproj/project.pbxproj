@@ -38,6 +38,7 @@
 		7835C1DE2228767B00DA74EE /* RootTabControllerViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1DD2228767B00DA74EE /* RootTabControllerViewOutput.swift */; };
 		78582BFD222A860700CEC75E /* URLResponse+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78582BFC222A860700CEC75E /* URLResponse+Additions.swift */; };
 		78582BFF222A8E8800CEC75E /* CreationPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78582BFE222A8E8800CEC75E /* CreationPeriod.swift */; };
+		78582C03222AA09C00CEC75E /* UpcomingItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78582C02222AA09C00CEC75E /* UpcomingItemCell.xib */; };
 		7859C7F72227000B00505AB8 /* NetworkingTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7F62227000B00505AB8 /* NetworkingTransport.swift */; };
 		7859C7F9222700CE00505AB8 /* ReposLoadingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7F8222700CE00505AB8 /* ReposLoadingService.swift */; };
 		7859C7FF2227139400505AB8 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7FE2227139400505AB8 /* Repository.swift */; };
@@ -83,6 +84,7 @@
 		7835C1DD2228767B00DA74EE /* RootTabControllerViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabControllerViewOutput.swift; sourceTree = "<group>"; };
 		78582BFC222A860700CEC75E /* URLResponse+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+Additions.swift"; sourceTree = "<group>"; };
 		78582BFE222A8E8800CEC75E /* CreationPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationPeriod.swift; sourceTree = "<group>"; };
+		78582C02222AA09C00CEC75E /* UpcomingItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpcomingItemCell.xib; sourceTree = "<group>"; };
 		7859C7F12226C21900505AB8 /* Stanwood-assignment-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stanwood-assignment-Bridging-Header.h"; sourceTree = "<group>"; };
 		7859C7F62227000B00505AB8 /* NetworkingTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTransport.swift; sourceTree = "<group>"; };
 		7859C7F8222700CE00505AB8 /* ReposLoadingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposLoadingService.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		7859C80422271ADB00505AB8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				78582C02222AA09C00CEC75E /* UpcomingItemCell.xib */,
 				7859C80522271AE600505AB8 /* RepoCell.swift */,
 				7835C1BC22280F4300DA74EE /* RepoCell.xib */,
 				7835C1AA2228043000DA74EE /* ReposListViewController.swift */,
@@ -426,6 +429,7 @@
 			files = (
 				78100B942226B5C00006D870 /* LaunchScreen.storyboard in Resources */,
 				7835C1D0222866F100DA74EE /* PeriodSelectionView.xib in Resources */,
+				78582C03222AA09C00CEC75E /* UpcomingItemCell.xib in Resources */,
 				78084D602226BFF000674BD8 /* ReposListViewController.storyboard in Resources */,
 				78100B912226B5C00006D870 /* Assets.xcassets in Resources */,
 				7835C1BD22280F4300DA74EE /* RepoCell.xib in Resources */,

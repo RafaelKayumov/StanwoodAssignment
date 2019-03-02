@@ -10,6 +10,6 @@ import Foundation
 
 protocol ReposListViewDataProvider: class {
 
-    func repoForIndex(_ index: Int) -> Repository?
-    var reposCount: Int { get }
+    func itemForIndex(_ index: Int) -> Repository?
+    var totalItemsCount: Int { get }
 }

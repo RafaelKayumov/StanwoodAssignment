@@ -9,4 +9,5 @@
 import Foundation
 
 protocol FetchReposViewInput: ReposListViewInput {
+    func reloadVisibleCells()
 }
