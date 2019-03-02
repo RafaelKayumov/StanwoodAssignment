@@ -7,6 +7,10 @@
 
 import Foundation
 
+//haradcoded in scope of test task
+//Normally should be acquired during authorization and stored in keychain
+private let kAuthToken = "3fb98bb8ebde8c5bfd0e72af752c468b70048129"
+
 private let kURLScheme = "https"
 
 protocol RouteProviding {
@@ -43,6 +47,7 @@ class NetworkingTransport {
         var request = URLRequest(url: route.url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("token \(kAuthToken)", forHTTPHeaderField: "Authorization")
 
         performRequest(request, with: completion)
     }

@@ -35,8 +35,8 @@ private extension FetchReposPresenter {
 
     typealias RepositoryListLoadCompletion = ([Repository]?) -> Void
 
-    func loadReposListHead() {
-        loadReposListHeadWithCompletion {
+    func loadReposList() {
+        loadReposListWithCompletion {
             guard let validRepos = $0 else { return }
 
             DispatchQueue.main.async {
@@ -46,7 +46,7 @@ private extension FetchReposPresenter {
         }
     }
 
-    func loadReposListHeadWithCompletion(_ completion: @escaping RepositoryListLoadCompletion) {
+    func loadReposListWithCompletion(_ completion: @escaping RepositoryListLoadCompletion) {
         reposLoadingService.fetchMostTrendingForPeriod(.day) { repos, _ in
             completion(repos)
         }
@@ -70,7 +70,7 @@ extension FetchReposPresenter: FetchReposViewDataProvider {
 extension FetchReposPresenter: FetchReposViewOutput {
 
     func onViewReady() {
-        loadReposListHead()
+        loadReposList()
     }
 
     func onCellSelectAtIndex(_ index: Int) {
