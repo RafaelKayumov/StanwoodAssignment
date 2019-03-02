@@ -17,6 +17,8 @@ class FetchReposPresenter {
     private var queryFilter = QueryFilter()
     private var isLoadingInProgress = false
 
+    private var realmQueue = DispatchQueue(label: "RealmOperations", qos: .userInitiated)
+
     init(reposLoadingService: ReposLoadingService, view: FetchReposViewInput) {
         self.reposLoadingService = reposLoadingService
         self.view = view
@@ -33,6 +35,17 @@ private extension FetchReposPresenter {
 
     func reloadUpcomingViewContent() {
         view.reloadVisibleCells()
+    }
+
+    func handeFavoriteStatusForRepo(at index: Int, favorite: Bool) {
+        guard let repo = repositoryList[index] else { return }
+        realmQueue.async {
+            if favorite {
+                RepositoryRealm.save(repo)
+            } else {
+                RepositoryRealm.delete(with: repo.id)
+            }
+        }
     }
 }
 
@@ -145,6 +158,10 @@ extension FetchReposPresenter: FetchReposViewOutput {
 
     func onCellSelectAtIndex(_ index: Int) {
 
+    }
+
+    func repoCell(at index: Int, didToggleFavoriteStateTo value: Bool) {
+        handeFavoriteStatusForRepo(at: index, favorite: value)
     }
 }
 

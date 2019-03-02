@@ -77,3 +77,10 @@ extension ReposListViewController: ReposListViewInput {
         reloadTableData()
     }
 }
+
+extension ReposListViewController: RepoCellDelegate {
+
+    func repoCell(_ repoCell: RepoCell, didToggleFavoriteStateTo value: Bool) {
+        
+    }
+}

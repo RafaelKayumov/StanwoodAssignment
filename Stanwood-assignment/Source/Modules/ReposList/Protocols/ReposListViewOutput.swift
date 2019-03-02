@@ -10,4 +10,5 @@ import Foundation
 
 protocol ReposListViewOutput: ViewOutput {
     func onCellSelectAtIndex(_ index: Int)
+    func repoCell(at index: Int, didToggleFavoriteStateTo value: Bool)
 }

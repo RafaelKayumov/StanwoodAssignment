@@ -16,10 +16,10 @@ struct Repository: Decodable {
     let description: String?
     let stargazersCount: Int
     let forks: Int
-    let createdAt: Date
+    let createdAt: Date?
     let language: String?
 
-    let owner: Owner
+    let owner: Owner?
 
     enum CodingKeys: String, CodingKey {
         case id

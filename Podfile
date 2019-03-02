@@ -9,6 +9,7 @@ def install_pods
     pod 'StanwoodCore'
     pod 'SwiftLint'
     pod 'Kingfisher'
+    pod 'RealmSwift'
 end
 
 target 'Stanwood-assignment' do

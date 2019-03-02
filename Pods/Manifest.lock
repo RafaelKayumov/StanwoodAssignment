@@ -1,24 +1,34 @@
 PODS:
   - Kingfisher (4.10.1)
+  - Realm (3.12.0):
+    - Realm/Headers (= 3.12.0)
+  - Realm/Headers (3.12.0)
+  - RealmSwift (3.12.0):
+    - Realm (= 3.12.0)
   - StanwoodCore (1.3.1)
   - SwiftLint (0.29.1)
 
 DEPENDENCIES:
   - Kingfisher
+  - RealmSwift
   - StanwoodCore
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Kingfisher
+    - Realm
+    - RealmSwift
     - StanwoodCore
     - SwiftLint
 
 SPEC CHECKSUMS:
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  Realm: cdaef23c4ddb36ab1ddffed23f5a7f3332fc5585
+  RealmSwift: 5576324033f0aa5ef1e0a839a3da2281dff47a7f
   StanwoodCore: ece1234bdfbc222817512ae16000d47fe32f94aa
   SwiftLint: 6772320e40b52049053a518c17db9b0634a0b45a
 
-PODFILE CHECKSUM: 4dc475412bc4197cae6f34fccd269cb6b30f96b5
+PODFILE CHECKSUM: cd8d62ab7909aca5cf7bbabe74858bad268a8899
 
 COCOAPODS: 1.5.3

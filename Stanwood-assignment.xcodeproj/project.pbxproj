@@ -48,6 +48,7 @@
 		78F4E570222AB3270050E32C /* QueryFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4E56F222AB3270050E32C /* QueryFilter.swift */; };
 		78F4E572222AB42C0050E32C /* RootTabControllerModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4E571222AB42C0050E32C /* RootTabControllerModuleInput.swift */; };
 		78F4E574222AB9020050E32C /* RootTabControllerViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4E573222AB9020050E32C /* RootTabControllerViewInput.swift */; };
+		78F4E577222ABCA70050E32C /* RepositoryRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4E576222ABCA70050E32C /* RepositoryRealm.swift */; };
 		B3B0D60E76D3D663994B0C71 /* Pods_Stanwood_assignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656D3A72E17C100B0B08993F /* Pods_Stanwood_assignment.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		78F4E56F222AB3270050E32C /* QueryFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryFilter.swift; sourceTree = "<group>"; };
 		78F4E571222AB42C0050E32C /* RootTabControllerModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabControllerModuleInput.swift; sourceTree = "<group>"; };
 		78F4E573222AB9020050E32C /* RootTabControllerViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabControllerViewInput.swift; sourceTree = "<group>"; };
+		78F4E576222ABCA70050E32C /* RepositoryRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRealm.swift; sourceTree = "<group>"; };
 		D7DD8FE39AEC8A73B0432649 /* Pods-Stanwood-assignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stanwood-assignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stanwood-assignment/Pods-Stanwood-assignment.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -333,6 +335,7 @@
 		7859C7FD2227137E00505AB8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				78F4E575222ABC970050E32C /* Realm */,
 				7859C7FE2227139400505AB8 /* Repository.swift */,
 				7859C800222713BF00505AB8 /* RepositorySearchPayload.swift */,
 				7835C1C0222818DA00DA74EE /* RepositoryList.swift */,
@@ -363,6 +366,14 @@
 				78582BFC222A860700CEC75E /* URLResponse+Additions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		78F4E575222ABC970050E32C /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				78F4E576222ABCA70050E32C /* RepositoryRealm.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		A8F67207862070C827433A22 /* Pods */ = {
@@ -475,6 +486,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Stanwood-assignment/Pods-Stanwood-assignment-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/StanwoodCore/StanwoodCore.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -482,6 +495,8 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StanwoodCore.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,6 +558,7 @@
 				7835C1DE2228767B00DA74EE /* RootTabControllerViewOutput.swift in Sources */,
 				7835C1A5222801BA00DA74EE /* FetchReposViewDataProvider.swift in Sources */,
 				7835C19E2228014A00DA74EE /* FetchReposModuleInput.swift in Sources */,
+				78F4E577222ABCA70050E32C /* RepositoryRealm.swift in Sources */,
 				7835C1DA2228705300DA74EE /* ReposListModuleInput.swift in Sources */,
 				7835C1BB22280D8700DA74EE /* FetchReposViewController.swift in Sources */,
 				7859C7F72227000B00505AB8 /* NetworkingTransport.swift in Sources */,

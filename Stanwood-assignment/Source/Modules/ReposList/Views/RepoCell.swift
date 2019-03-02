@@ -12,7 +12,11 @@ import Kingfisher
 extension Repository {
 
     var displayTitle: String {
-        return [owner.login, name].joined(separator: "/")
+        var components = [name]
+        if let login = owner?.login {
+            components.insert(login, at: 0)
+        }
+        return components.joined(separator: "/")
     }
 
     var displayStargazersText: String {
@@ -34,12 +38,15 @@ class RepoCell: UICollectionViewCell {
         descriptionLabel.text = repo.description
         stargazersLabel.text = repo.displayStargazersText
 
-        avatarImageView.kf.setImage(
-            with: repo.owner.avatarURL,
-            placeholder: nil,
-            options: [
-                .cacheOriginalImage
-            ])
+        avatarImageView.image = nil
+        if let ownerAvatarURL = repo.owner?.avatarURL {
+            avatarImageView.kf.setImage(
+                with: ownerAvatarURL,
+                placeholder: nil,
+                options: [
+                    .cacheOriginalImage
+                ])
+        }
     }
 }
 
