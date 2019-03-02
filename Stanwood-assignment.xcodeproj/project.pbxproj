@@ -37,6 +37,7 @@
 		7835C1DC2228744C00DA74EE /* RootTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1DB2228744C00DA74EE /* RootTabbarController.swift */; };
 		7835C1DE2228767B00DA74EE /* RootTabControllerViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1DD2228767B00DA74EE /* RootTabControllerViewOutput.swift */; };
 		78582BFD222A860700CEC75E /* URLResponse+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78582BFC222A860700CEC75E /* URLResponse+Additions.swift */; };
+		78582BFF222A8E8800CEC75E /* CreationPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78582BFE222A8E8800CEC75E /* CreationPeriod.swift */; };
 		7859C7F72227000B00505AB8 /* NetworkingTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7F62227000B00505AB8 /* NetworkingTransport.swift */; };
 		7859C7F9222700CE00505AB8 /* ReposLoadingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7F8222700CE00505AB8 /* ReposLoadingService.swift */; };
 		7859C7FF2227139400505AB8 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7FE2227139400505AB8 /* Repository.swift */; };
@@ -81,6 +82,7 @@
 		7835C1DB2228744C00DA74EE /* RootTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabbarController.swift; sourceTree = "<group>"; };
 		7835C1DD2228767B00DA74EE /* RootTabControllerViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabControllerViewOutput.swift; sourceTree = "<group>"; };
 		78582BFC222A860700CEC75E /* URLResponse+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+Additions.swift"; sourceTree = "<group>"; };
+		78582BFE222A8E8800CEC75E /* CreationPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationPeriod.swift; sourceTree = "<group>"; };
 		7859C7F12226C21900505AB8 /* Stanwood-assignment-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stanwood-assignment-Bridging-Header.h"; sourceTree = "<group>"; };
 		7859C7F62227000B00505AB8 /* NetworkingTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTransport.swift; sourceTree = "<group>"; };
 		7859C7F8222700CE00505AB8 /* ReposLoadingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposLoadingService.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				7859C7FE2227139400505AB8 /* Repository.swift */,
 				7859C800222713BF00505AB8 /* RepositorySearchPayload.swift */,
 				7835C1C0222818DA00DA74EE /* RepositoryList.swift */,
+				78582BFE222A8E8800CEC75E /* CreationPeriod.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				7835C1A32228019A00DA74EE /* FetchReposViewInput.swift in Sources */,
 				7835C1B0222805C300DA74EE /* ReposListViewOutput.swift in Sources */,
 				7835C1A12228018400DA74EE /* FetchReposViewOutput.swift in Sources */,
+				78582BFF222A8E8800CEC75E /* CreationPeriod.swift in Sources */,
 				7859C80922271DD000505AB8 /* Int+Additions.swift in Sources */,
 				7835C1AB2228043000DA74EE /* ReposListViewController.swift in Sources */,
 				7859C80622271AE600505AB8 /* RepoCell.swift in Sources */,

@@ -25,6 +25,7 @@ private extension RootTabbarController {
 
     func setupCreationPeriodSelectionView() {
         creationPeriodSelectionView = PeriodSelectionView.loadFromNib()
+        creationPeriodSelectionView.configureSegmentsSet(with: Repository.CreationPeriod.allCases)
         creationPeriodSelectionView.addTarget(self, action: #selector(onSegmentSelection(sender:)), for: .valueChanged)
         let newFrame = CGRect(x: 0, y: 0, width: view.bounds.width - 2 * kSegmentedControlSidePadding, height: creationPeriodSelectionView.frame.height)
         creationPeriodSelectionView.frame = newFrame

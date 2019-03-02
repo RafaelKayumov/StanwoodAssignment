@@ -17,7 +17,7 @@ class ReposLoadingService {
         self.transport = transport
     }
 
-    func fetchMostTrendingForPeriod(_ period: CreationPeriod, completion: @escaping ReposFetchingCompletion) {
+    func fetchMostTrendingForPeriod(_ period: Repository.CreationPeriod, completion: @escaping ReposFetchingCompletion) {
         transport.query(Route.list(creationPeriod: period)) { data, urlResponse, error in
             guard error == nil,
                 let data = data else {
@@ -47,7 +47,7 @@ private let kDefaultQueryParams = [
 extension ReposLoadingService {
 
     enum Route: RouteProviding {
-        case list(creationPeriod: CreationPeriod)
+        case list(creationPeriod: Repository.CreationPeriod)
 
         var path: String {
             switch self {
@@ -71,30 +71,27 @@ extension ReposLoadingService {
             }
         }
     }
+}
 
-    enum CreationPeriod: Int {
-        case day
-        case week
-        case month
+extension Repository.CreationPeriod {
 
-        var calendarInterval: Calendar.Component {
-            switch self {
-            case .day:
-                return Calendar.Component.day
-            case .week:
-                return Calendar.Component.weekOfMonth
-            case .month:
-                return Calendar.Component.month
-            }
+    var calendarInterval: Calendar.Component {
+        switch self {
+        case .day:
+            return Calendar.Component.day
+        case .month:
+            return Calendar.Component.month
+        case .year:
+            return Calendar.Component.year
         }
+    }
 
-        var thresholdDate: Date {
-            return Calendar.current.date(byAdding: calendarInterval, value: -1, to: Date())!
-        }
+    var thresholdDate: Date {
+        return Calendar.current.date(byAdding: calendarInterval, value: -1, to: Date())!
+    }
 
-        var queryValue: String {
-            let dateString = ISO8601DateFormatter().string(from: thresholdDate)
-            return "created:>" + dateString
-        }
+    var queryValue: String {
+        let dateString = ISO8601DateFormatter().string(from: thresholdDate)
+        return "created:>" + dateString
     }
 }

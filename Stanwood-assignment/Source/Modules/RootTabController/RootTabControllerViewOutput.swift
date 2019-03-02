@@ -9,5 +9,5 @@
 import Foundation
 
 protocol RootTabControllerViewOutput: class {
-    func onPeriodSelection(period: ReposLoadingService.CreationPeriod)
+    func onPeriodSelection(period: Repository.CreationPeriod)
 }

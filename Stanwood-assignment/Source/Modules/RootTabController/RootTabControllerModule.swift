@@ -10,7 +10,7 @@ import Foundation
 
 class RootTabControllerModule: RootTabControllerViewOutput {
 
-    func onPeriodSelection(period: ReposLoadingService.CreationPeriod) {
+    func onPeriodSelection(period: Repository.CreationPeriod) {
         AppAssembly.fetchReposModule?.applyCreationPeriod(period)
     }
 }

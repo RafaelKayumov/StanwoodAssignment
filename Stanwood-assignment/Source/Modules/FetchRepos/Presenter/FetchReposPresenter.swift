@@ -80,7 +80,7 @@ extension FetchReposPresenter: FetchReposViewOutput {
 
 extension FetchReposPresenter: FetchReposModuleInput {
 
-    func applyCreationPeriod(_ creationPeriod: ReposLoadingService.CreationPeriod) {
+    func applyCreationPeriod(_ creationPeriod: Repository.CreationPeriod) {
         print("")
     }
 }
