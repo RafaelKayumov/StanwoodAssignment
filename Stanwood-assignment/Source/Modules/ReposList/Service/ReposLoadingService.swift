@@ -13,6 +13,7 @@ class ReposLoadingService {
     typealias ReposFetchingCompletion = ([Repository]?, Int?, URL?, Error?) -> Void
 
     private let transport: NetworkingTransport
+    private var dataTask: URLSessionDataTask?
     init(transport: NetworkingTransport = NetworkingTransport()) {
         self.transport = transport
     }
@@ -36,11 +37,16 @@ class ReposLoadingService {
     }
 
     func fetchMostTrendingForPeriod(_ period: Repository.CreationPeriod, completion: @escaping ReposFetchingCompletion) {
-        transport.query(Route.list(creationPeriod: period), with: reposResponseDataHandler(with: completion))
+        dataTask = transport.query(Route.list(creationPeriod: period), with: reposResponseDataHandler(with: completion))
     }
 
     func fetch(with url: URL, completion: @escaping ReposFetchingCompletion) {
-        transport.fetchDataWithURL(url, completion: reposResponseDataHandler(with: completion))
+        dataTask = transport.fetchDataWithURL(url, completion: reposResponseDataHandler(with: completion))
+    }
+
+    func cancelTask() {
+        dataTask?.cancel()
+        dataTask = nil
     }
 }
 

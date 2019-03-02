@@ -10,7 +10,20 @@ import Foundation
 
 class RootTabControllerModule: RootTabControllerViewOutput {
 
+    private weak var view: RootTabControllerViewInput!
+
+    init(view: RootTabControllerViewInput) {
+        self.view = view
+    }
+
     func onPeriodSelection(period: Repository.CreationPeriod) {
         AppAssembly.fetchReposModule?.applyCreationPeriod(period)
+    }
+}
+
+extension RootTabControllerModule: RootTabControllerModuleInput {
+
+    func selectPeriod(_ period: Repository.CreationPeriod) {
+        view.selectPeriod(period)
     }
 }

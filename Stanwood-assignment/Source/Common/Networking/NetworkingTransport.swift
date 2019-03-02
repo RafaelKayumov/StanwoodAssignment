@@ -43,27 +43,29 @@ class NetworkingTransport {
         self.session = session
     }
 
-    func query(_ route: RouteProviding, with completion: @escaping DataTaskCompletion) {
-        fetchDataWithURL(route.url, completion: completion)
+    func query(_ route: RouteProviding, with completion: @escaping DataTaskCompletion) -> URLSessionDataTask {
+        return fetchDataWithURL(route.url, completion: completion)
     }
 
-    func fetchDataWithURL(_ url: URL, completion: @escaping DataTaskCompletion) {
+    func fetchDataWithURL(_ url: URL, completion: @escaping DataTaskCompletion) -> URLSessionDataTask {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("token \(kAuthToken)", forHTTPHeaderField: "Authorization")
 
-        performRequest(URLRequest(url: url), with: completion)
+        return performRequest(URLRequest(url: url), with: completion)
     }
 }
 
 private extension NetworkingTransport {
 
-    func performRequest(_ request: URLRequest, with completion: @escaping DataTaskCompletion) {
+    func performRequest(_ request: URLRequest, with completion: @escaping DataTaskCompletion) -> URLSessionDataTask {
         let task = session.dataTask(with: request) { (data, response, error) in
             completion(data, response, error)
         }
 
         task.resume()
+
+        return task
     }
 }

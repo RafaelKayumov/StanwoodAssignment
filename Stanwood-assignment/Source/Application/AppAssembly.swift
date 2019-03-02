@@ -51,7 +51,7 @@ private extension AppAssembly {
 
     static func assembleRootTabController() -> (module: RootTabControllerModule, view: UITabBarController) {
         let tabbarController = RootTabbarController()
-        let rootTabControllerModule = RootTabControllerModule()
+        let rootTabControllerModule = RootTabControllerModule(view: tabbarController)
         tabbarController.output = rootTabControllerModule
 
         return (module: rootTabControllerModule, view: tabbarController)

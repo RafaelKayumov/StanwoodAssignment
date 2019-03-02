@@ -21,6 +21,12 @@ class RootTabbarController: UITabBarController {
     }
 }
 
+extension RootTabbarController: RootTabControllerViewInput {
+    func selectPeriod(_ period: Repository.CreationPeriod) {
+        creationPeriodSelectionView.selectCreationPeriod(period)
+    }
+}
+
 private extension RootTabbarController {
 
     func setupCreationPeriodSelectionView() {

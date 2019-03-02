@@ -19,6 +19,12 @@ struct RepositoryList {
         self.nextPageURL = nextPageURL
     }
 
+    mutating func clear() {
+        repos = []
+        nextPageURL = nil
+        totalExisting = 0
+    }
+
     var count: Int {
         return repos.count
     }

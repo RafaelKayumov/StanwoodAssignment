@@ -13,6 +13,8 @@ class FetchReposPresenter {
     private let reposLoadingService: ReposLoadingService
     private unowned var view: FetchReposViewInput
     private var repositoryList = RepositoryList()
+
+    private var queryFilter = QueryFilter()
     private var isLoadingInProgress = false
 
     init(reposLoadingService: ReposLoadingService, view: FetchReposViewInput) {
@@ -26,6 +28,10 @@ class FetchReposPresenter {
 private extension FetchReposPresenter {
 
     func populateView() {
+        view.reloadData()
+    }
+
+    func reloadUpcomingViewContent() {
         view.reloadVisibleCells()
     }
 }
@@ -43,10 +49,13 @@ private extension FetchReposPresenter {
 
     func loadReposListBatch() {
         var option: ReposListBatchLoadingOption
+        var displayFunction: () -> Void
         if let nextPageURL = repositoryList.nextPageURL {
             option = .next(nextPageURL)
+            displayFunction = reloadUpcomingViewContent
         } else {
-            option = .initial(.day)
+            option = .initial(queryFilter.creationPeriod)
+            displayFunction = populateView
         }
 
         loadReposListBatch(with: option) { repos, totalExisting, nextPageURL in
@@ -57,7 +66,7 @@ private extension FetchReposPresenter {
                 if case .initial = option, let totalExistingValid = totalExisting {
                     self.repositoryList.totalExisting = totalExistingValid
                 }
-                self.populateView()
+                displayFunction()
             }
         }
     }
@@ -75,6 +84,13 @@ private extension FetchReposPresenter {
         case .next(let url):
             reposLoadingService.fetch(with: url, completion: loadingCompletion)
         }
+    }
+
+    func cancelTasksAndClearRepos() {
+        reposLoadingService.cancelTask()
+        isLoadingInProgress = false
+        repositoryList.clear()
+        populateView()
     }
 }
 
@@ -124,6 +140,7 @@ extension FetchReposPresenter: FetchReposViewOutput {
 
     func onViewReady() {
         loadReposListBatch()
+        AppAssembly.rootTabbarControllerModule?.selectPeriod(queryFilter.creationPeriod)
     }
 
     func onCellSelectAtIndex(_ index: Int) {
@@ -134,5 +151,8 @@ extension FetchReposPresenter: FetchReposViewOutput {
 extension FetchReposPresenter: FetchReposModuleInput {
 
     func applyCreationPeriod(_ creationPeriod: Repository.CreationPeriod) {
+        cancelTasksAndClearRepos()
+        queryFilter.creationPeriod = creationPeriod
+        loadReposListBatch()
     }
 }
