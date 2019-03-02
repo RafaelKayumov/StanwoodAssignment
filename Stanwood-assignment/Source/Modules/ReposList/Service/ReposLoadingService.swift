@@ -10,7 +10,7 @@ import Foundation
 
 class ReposLoadingService {
 
-    typealias ReposFetchingCompletion = ([Repository]?, Error?) -> Void
+    typealias ReposFetchingCompletion = ([Repository]?, URL?, Error?) -> Void
 
     private let transport: NetworkingTransport
     init(transport: NetworkingTransport = NetworkingTransport()) {
@@ -18,10 +18,10 @@ class ReposLoadingService {
     }
 
     func fetchMostTrendingForPeriod(_ period: CreationPeriod, completion: @escaping ReposFetchingCompletion) {
-        transport.query(Route.list(creationPeriod: period)) { data, _, error in
+        transport.query(Route.list(creationPeriod: period)) { data, urlResponse, error in
             guard error == nil,
                 let data = data else {
-                    completion(nil, error)
+                    completion(nil, nil, error)
                     return
             }
 
@@ -29,7 +29,9 @@ class ReposLoadingService {
             decoder.dateDecodingStrategy = .iso8601
             let reposPayload = try? decoder.decode(RepositorySearchPayload.self, from: data)
 
-            completion(reposPayload?.items, nil)
+            let nextPageURL = urlResponse?.nextPageURL
+
+            completion(reposPayload?.items, nextPageURL, nil)
         }
     }
 }

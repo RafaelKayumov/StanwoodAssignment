@@ -36,6 +36,7 @@
 		7835C1DA2228705300DA74EE /* ReposListModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1D92228705300DA74EE /* ReposListModuleInput.swift */; };
 		7835C1DC2228744C00DA74EE /* RootTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1DB2228744C00DA74EE /* RootTabbarController.swift */; };
 		7835C1DE2228767B00DA74EE /* RootTabControllerViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1DD2228767B00DA74EE /* RootTabControllerViewOutput.swift */; };
+		78582BFD222A860700CEC75E /* URLResponse+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78582BFC222A860700CEC75E /* URLResponse+Additions.swift */; };
 		7859C7F72227000B00505AB8 /* NetworkingTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7F62227000B00505AB8 /* NetworkingTransport.swift */; };
 		7859C7F9222700CE00505AB8 /* ReposLoadingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7F8222700CE00505AB8 /* ReposLoadingService.swift */; };
 		7859C7FF2227139400505AB8 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7859C7FE2227139400505AB8 /* Repository.swift */; };
@@ -79,6 +80,7 @@
 		7835C1D92228705300DA74EE /* ReposListModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListModuleInput.swift; sourceTree = "<group>"; };
 		7835C1DB2228744C00DA74EE /* RootTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabbarController.swift; sourceTree = "<group>"; };
 		7835C1DD2228767B00DA74EE /* RootTabControllerViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabControllerViewOutput.swift; sourceTree = "<group>"; };
+		78582BFC222A860700CEC75E /* URLResponse+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+Additions.swift"; sourceTree = "<group>"; };
 		7859C7F12226C21900505AB8 /* Stanwood-assignment-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stanwood-assignment-Bridging-Header.h"; sourceTree = "<group>"; };
 		7859C7F62227000B00505AB8 /* NetworkingTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTransport.swift; sourceTree = "<group>"; };
 		7859C7F8222700CE00505AB8 /* ReposLoadingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposLoadingService.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				7835C1C622283D9E00DA74EE /* EllipseView.swift */,
 				7859C80822271DD000505AB8 /* Int+Additions.swift */,
 				7835C1BE222814BD00DA74EE /* UICollectionViewController+Defaults.swift */,
+				78582BFC222A860700CEC75E /* URLResponse+Additions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				7835C1C922283F7000DA74EE /* LineView.swift in Sources */,
 				7835C1DC2228744C00DA74EE /* RootTabbarController.swift in Sources */,
 				7835C1D822286D5800DA74EE /* RootTabControllerModule.swift in Sources */,
+				78582BFD222A860700CEC75E /* URLResponse+Additions.swift in Sources */,
 				7835C1B5222809D600DA74EE /* ReposListViewInput.swift in Sources */,
 				7859C7F9222700CE00505AB8 /* ReposLoadingService.swift in Sources */,
 				7835C1AE2228055000DA74EE /* ReposListViewDataProvider.swift in Sources */,

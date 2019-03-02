@@ -11,25 +11,11 @@ import Foundation
 struct RepositoryList {
 
     private var repos = [Repository]()
+    private(set) var nextPageURL: URL?
 
-    mutating func applyRepos(_ repos: [Repository]) {
+    mutating func applyReposBatch(_ repos: [Repository], nextPageURL: URL?) {
         self.repos = repos
-    }
-
-    func insertRepo(_ repo: Repository, at index: Int) {
-
-    }
-
-    func removeAt(_ index: Int) {
-
-    }
-
-    func appendRepos(_ repos: [Repository]) {
-
-    }
-
-    func insertReposToBeginning(_ repos: [Repository]) {
-
+        self.nextPageURL = nextPageURL
     }
 
     var count: Int {

@@ -33,22 +33,22 @@ private extension FetchReposPresenter {
 
 private extension FetchReposPresenter {
 
-    typealias RepositoryListLoadCompletion = ([Repository]?) -> Void
+    typealias RepositoryListLoadCompletion = ([Repository]?, URL?) -> Void
 
     func loadReposList() {
-        loadReposListWithCompletion {
-            guard let validRepos = $0 else { return }
+        loadReposListWithCompletion { repos, nextPageURL in
+            guard let validRepos = repos else { return }
 
             DispatchQueue.main.async {
-                self.repositoryList.applyRepos(validRepos)
+                self.repositoryList.applyReposBatch(validRepos, nextPageURL: nextPageURL)
                 self.populateView()
             }
         }
     }
 
     func loadReposListWithCompletion(_ completion: @escaping RepositoryListLoadCompletion) {
-        reposLoadingService.fetchMostTrendingForPeriod(.day) { repos, _ in
-            completion(repos)
+        reposLoadingService.fetchMostTrendingForPeriod(.day) { repos, nextPageURL, _ in
+            completion(repos, nextPageURL)
         }
     }
 }
