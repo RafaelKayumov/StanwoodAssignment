@@ -22,7 +22,7 @@ class RootTabbarController: UITabBarController {
 }
 
 extension RootTabbarController: RootTabControllerViewInput {
-    func selectPeriod(_ period: Repository.CreationPeriod) {
+    func selectPeriod(_ period: RepositoryPlain.CreationPeriod) {
         creationPeriodSelectionView.selectCreationPeriod(period)
     }
 }
@@ -31,7 +31,7 @@ private extension RootTabbarController {
 
     func setupCreationPeriodSelectionView() {
         creationPeriodSelectionView = PeriodSelectionView.loadFromNib()
-        creationPeriodSelectionView.configureSegmentsSet(with: Repository.CreationPeriod.allCases)
+        creationPeriodSelectionView.configureSegmentsSet(with: RepositoryPlain.CreationPeriod.allCases)
         creationPeriodSelectionView.addTarget(self, action: #selector(onSegmentSelection(sender:)), for: .valueChanged)
         let newFrame = CGRect(x: 0, y: 0, width: view.bounds.width - 2 * kSegmentedControlSidePadding, height: creationPeriodSelectionView.frame.height)
         creationPeriodSelectionView.frame = newFrame

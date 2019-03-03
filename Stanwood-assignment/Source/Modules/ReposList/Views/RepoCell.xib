@@ -71,6 +71,9 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="enabledStateImage" value="StarFilled"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="disabledStateImage" value="StarEmpty"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="m3U-4p-6Yq" id="cVV-ne-yuc"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="21k" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ja3-DI-neq">
                                 <rect key="frame" x="0.0" y="31" width="26" height="18"/>

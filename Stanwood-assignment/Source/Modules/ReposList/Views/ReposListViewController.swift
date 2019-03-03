@@ -36,19 +36,12 @@ extension ReposListViewController {
         if let repository = dataProvider.itemForIndex(indexPath.item) {
             let cell = collectionView.dequeue(cellType: RepoCell.self, for: indexPath)
             cell.configureWithRepo(repository)
+            cell.delegate = self
             return cell
         } else {
             return collectionView.dequeueReusableCell(withReuseIdentifier: kUpcomingItemCellIdentifier, for: indexPath)
         }
     }
-}
-
-extension ReposListViewController {
-
-     // MARK: - Navigation
-
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     }
 }
 
 private extension ReposListViewController {
@@ -81,6 +74,7 @@ extension ReposListViewController: ReposListViewInput {
 extension ReposListViewController: RepoCellDelegate {
 
     func repoCell(_ repoCell: RepoCell, didToggleFavoriteStateTo value: Bool) {
-        
+        guard let index = collectionView.indexPath(for: repoCell)?.item else { return }
+        output.repoCell(at: index, didToggleFavoriteStateTo: value)
     }
 }

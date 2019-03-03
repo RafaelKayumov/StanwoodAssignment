@@ -10,32 +10,29 @@ import RealmSwift
 
 class RepositoryRealm: Object {
 
-    @objc dynamic var id = 0
+    @objc dynamic var id: Int = 0
     @objc dynamic var name = ""
-    @objc dynamic var url: String?
+    @objc dynamic var urlString: String?
     @objc dynamic var repoDescription: String?
     @objc dynamic var stargazersCount = 0
     @objc dynamic var forks = 0
     @objc dynamic var createdAt: Date?
-    @objc dynamic var language = ""
+    @objc dynamic var language: String?
 
-    @objc dynamic var owner: Owner?
+    @objc dynamic var repoOwner: RepositoryOwnerRealm?
 
     override static func primaryKey() -> String? {
         return "id"
     }
 }
 
-extension RepositoryRealm {
+class RepositoryOwnerRealm: Object {
+    @objc dynamic var login = ""
+    @objc dynamic var id = 0
+    @objc dynamic var avatarURLString: String?
 
-    class Owner: Object {
-        @objc dynamic var login = ""
-        @objc dynamic var id = 0
-        @objc dynamic var avatarUrl: String?
-
-        override static func primaryKey() -> String? {
-            return "id"
-        }
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }
 
@@ -50,18 +47,35 @@ extension RepositoryRealm {
         }
 
         try? realm.write {
-            if let owner = repoToDelete.owner {
+            if let owner = repoToDelete.repoOwner {
                 realm.delete(owner)
             }
             realm.delete(repoToDelete)
         }
     }
 
-    static func save(_ repository: Repository) {
+    static func save(_ repository: RepositoryPlain) {
         guard let realm = try? Realm() else { return }
-        let repositoryRealm = RepositoryRealm(value: repository)
         try? realm.write {
-            realm.add(repositoryRealm, update: true)
+            realm.create(RepositoryRealm.self, value: ["id": 123123, "name": "test"], update: true)
         }
+    }
+}
+
+extension RepositoryOwnerRealm: RepositoryOwner {
+    var avatarURL: URL? {
+        guard let avatarURLString = avatarURLString, let url = URL(string: avatarURLString) else { return nil }
+        return url
+    }
+}
+
+extension RepositoryRealm: Repository {
+    var owner: RepositoryOwner? {
+        return repoOwner
+    }
+
+    var url: URL? {
+        guard let urlString = urlString, let url = URL(string: urlString) else { return nil }
+        return url
     }
 }

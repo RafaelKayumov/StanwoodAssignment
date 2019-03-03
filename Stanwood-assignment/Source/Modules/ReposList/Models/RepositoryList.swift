@@ -10,11 +10,11 @@ import Foundation
 
 struct RepositoryList {
 
-    private var repos = [Repository]()
+    private var repos = [RepositoryPlain]()
     private(set) var nextPageURL: URL?
     var totalExisting = 0
 
-    mutating func applyReposBatch(_ repos: [Repository], nextPageURL: URL?) {
+    mutating func applyReposBatch(_ repos: [RepositoryPlain], nextPageURL: URL?) {
         self.repos.append(contentsOf: repos)
         self.nextPageURL = nextPageURL
     }
@@ -33,7 +33,7 @@ struct RepositoryList {
         return totalExisting == count
     }
 
-    subscript(index: Int) -> Repository? {
+    subscript(index: Int) -> RepositoryPlain? {
         guard repos.indices.contains(index) else { return nil }
         return repos[index]
     }

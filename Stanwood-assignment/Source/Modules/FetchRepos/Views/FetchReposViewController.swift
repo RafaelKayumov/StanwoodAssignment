@@ -26,13 +26,6 @@ extension FetchReposViewController: UICollectionViewDataSourcePrefetching {
     }
 }
 
-private extension FetchReposViewController {
-
-    // MARK: Methods
-
-    // MARK: Actions
-}
-
 extension FetchReposViewController: FetchReposViewInput {
     func reloadVisibleCells() {
         let visibleCellsIndexes = collectionView.indexPathsForVisibleItems

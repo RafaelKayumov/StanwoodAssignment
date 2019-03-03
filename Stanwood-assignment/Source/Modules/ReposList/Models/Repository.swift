@@ -8,47 +8,73 @@
 
 import Foundation
 
-struct Repository: Decodable {
+protocol RepositoryOwner {
+
+    var login: String { get }
+    var id: Int { get }
+    var avatarURL: URL? { get }
+}
+
+protocol Repository {
+
+    var id: Int { get }
+    var name: String { get }
+    var url: URL? { get }
+    var repoDescription: String? { get }
+    var stargazersCount: Int { get }
+    var forks: Int { get }
+    var createdAt: Date? { get }
+    var language: String? { get }
+
+    var owner: RepositoryOwner? { get }
+}
+
+struct RepositoryPlain: Decodable {
 
     let id: Int
     let name: String
     let url: URL?
-    let description: String?
+    let repoDescription: String?
     let stargazersCount: Int
     let forks: Int
     let createdAt: Date?
     let language: String?
 
-    let owner: Owner?
+    let ownerPlain: Owner?
 
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case url = "html_url"
-        case description
+        case repoDescription = "description"
         case stargazersCount = "stargazers_count"
         case forks
         case createdAt = "created_at"
         case language = "language"
-        case owner
+        case ownerPlain = "owner"
     }
 }
 
-extension Repository {
+extension RepositoryPlain {
 
-    struct Owner: Decodable {
-
+    struct Owner: Decodable, RepositoryOwner {
         let login: String
         let id: Int
         let avatarURL: URL?
     }
 }
 
-extension Repository.Owner {
+extension RepositoryPlain.Owner {
 
     enum CodingKeys: String, CodingKey {
         case id
         case login
         case avatarURL = "avatar_url"
+    }
+}
+
+extension RepositoryPlain: Repository {
+    var owner: RepositoryOwner? {
+        return ownerPlain
     }
 }

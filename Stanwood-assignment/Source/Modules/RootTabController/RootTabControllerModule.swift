@@ -16,14 +16,14 @@ class RootTabControllerModule: RootTabControllerViewOutput {
         self.view = view
     }
 
-    func onPeriodSelection(period: Repository.CreationPeriod) {
+    func onPeriodSelection(period: RepositoryPlain.CreationPeriod) {
         AppAssembly.fetchReposModule?.applyCreationPeriod(period)
     }
 }
 
 extension RootTabControllerModule: RootTabControllerModuleInput {
 
-    func selectPeriod(_ period: Repository.CreationPeriod) {
+    func selectPeriod(_ period: RepositoryPlain.CreationPeriod) {
         view.selectPeriod(period)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  RootTabControllerViewInput.swift
+//  FavoriteReposViewOutput.swift
 //  Stanwood-assignment
 //
 //  Created by Rafael Kayumov on 02/03/2019.
@@ -8,6 +8,5 @@
 
 import Foundation
 
-protocol RootTabControllerViewInput: class {
-    func selectPeriod(_ period: RepositoryPlain.CreationPeriod)
+protocol FavoriteReposViewOutput: ReposListViewOutput {
 }

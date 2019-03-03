@@ -29,13 +29,13 @@ class RepoCell: UICollectionViewCell {
     @IBOutlet private weak var avatarImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var favoriteIndicator: UIImageView!
+    @IBOutlet private weak var favoriteIndicator: SwitcherImageView!
     @IBOutlet private weak var stargazersLabel: UILabel!
     weak var delegate: RepoCellDelegate?
 
     func configureWithRepo(_ repo: Repository) {
         titleLabel.text = repo.displayTitle
-        descriptionLabel.text = repo.description
+        descriptionLabel.text = repo.repoDescription
         stargazersLabel.text = repo.displayStargazersText
 
         avatarImageView.image = nil

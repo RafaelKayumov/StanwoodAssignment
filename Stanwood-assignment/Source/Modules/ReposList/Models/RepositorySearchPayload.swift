@@ -12,7 +12,7 @@ struct RepositorySearchPayload: Decodable {
 
     let totalCount: Int
     let incompleteResults: Bool
-    let items: [Repository]
+    let items: [RepositoryPlain]
 
     enum CodingKeys: String, CodingKey {
         case totalCount = "total_count"

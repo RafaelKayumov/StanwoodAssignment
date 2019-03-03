@@ -16,7 +16,6 @@
 		7835C19E2228014A00DA74EE /* FetchReposModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C19D2228014A00DA74EE /* FetchReposModuleInput.swift */; };
 		7835C1A12228018400DA74EE /* FetchReposViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1A02228018400DA74EE /* FetchReposViewOutput.swift */; };
 		7835C1A32228019A00DA74EE /* FetchReposViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1A22228019A00DA74EE /* FetchReposViewInput.swift */; };
-		7835C1A5222801BA00DA74EE /* FetchReposViewDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1A4222801BA00DA74EE /* FetchReposViewDataProvider.swift */; };
 		7835C1A8222801D200DA74EE /* FetchReposPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1A7222801D200DA74EE /* FetchReposPresenter.swift */; };
 		7835C1AB2228043000DA74EE /* ReposListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1AA2228043000DA74EE /* ReposListViewController.swift */; };
 		7835C1AE2228055000DA74EE /* ReposListViewDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835C1AD2228055000DA74EE /* ReposListViewDataProvider.swift */; };
@@ -49,6 +48,13 @@
 		78F4E572222AB42C0050E32C /* RootTabControllerModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4E571222AB42C0050E32C /* RootTabControllerModuleInput.swift */; };
 		78F4E574222AB9020050E32C /* RootTabControllerViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4E573222AB9020050E32C /* RootTabControllerViewInput.swift */; };
 		78F4E577222ABCA70050E32C /* RepositoryRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4E576222ABCA70050E32C /* RepositoryRealm.swift */; };
+		78F4E57C222AD3B30050E32C /* FavoriteReposViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4E57B222AD3B30050E32C /* FavoriteReposViewOutput.swift */; };
+		78F4E57E222AD3C70050E32C /* FavoriteReposViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4E57D222AD3C70050E32C /* FavoriteReposViewInput.swift */; };
+		78F4E580222AD4200050E32C /* FavoriteReposPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4E57F222AD4200050E32C /* FavoriteReposPresenter.swift */; };
+		78F4E582222AD4590050E32C /* FavoriteReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4E581222AD4590050E32C /* FavoriteReposViewController.swift */; };
+		78F4E58D222C4A790050E32C /* RealmQueryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4E58C222C4A790050E32C /* RealmQueryManager.swift */; };
+		78F4E58F222C5A0A0050E32C /* RealmWritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4E58E222C5A0A0050E32C /* RealmWritesManager.swift */; };
+		78F4E591222C5C520050E32C /* FavoriteReposModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4E590222C5C520050E32C /* FavoriteReposModuleInput.swift */; };
 		B3B0D60E76D3D663994B0C71 /* Pods_Stanwood_assignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656D3A72E17C100B0B08993F /* Pods_Stanwood_assignment.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +72,6 @@
 		7835C19D2228014A00DA74EE /* FetchReposModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchReposModuleInput.swift; sourceTree = "<group>"; };
 		7835C1A02228018400DA74EE /* FetchReposViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchReposViewOutput.swift; sourceTree = "<group>"; };
 		7835C1A22228019A00DA74EE /* FetchReposViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchReposViewInput.swift; sourceTree = "<group>"; };
-		7835C1A4222801BA00DA74EE /* FetchReposViewDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchReposViewDataProvider.swift; sourceTree = "<group>"; };
 		7835C1A7222801D200DA74EE /* FetchReposPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchReposPresenter.swift; sourceTree = "<group>"; };
 		7835C1AA2228043000DA74EE /* ReposListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListViewController.swift; sourceTree = "<group>"; };
 		7835C1AD2228055000DA74EE /* ReposListViewDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListViewDataProvider.swift; sourceTree = "<group>"; };
@@ -100,6 +105,13 @@
 		78F4E571222AB42C0050E32C /* RootTabControllerModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabControllerModuleInput.swift; sourceTree = "<group>"; };
 		78F4E573222AB9020050E32C /* RootTabControllerViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabControllerViewInput.swift; sourceTree = "<group>"; };
 		78F4E576222ABCA70050E32C /* RepositoryRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRealm.swift; sourceTree = "<group>"; };
+		78F4E57B222AD3B30050E32C /* FavoriteReposViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteReposViewOutput.swift; sourceTree = "<group>"; };
+		78F4E57D222AD3C70050E32C /* FavoriteReposViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteReposViewInput.swift; sourceTree = "<group>"; };
+		78F4E57F222AD4200050E32C /* FavoriteReposPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteReposPresenter.swift; sourceTree = "<group>"; };
+		78F4E581222AD4590050E32C /* FavoriteReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteReposViewController.swift; sourceTree = "<group>"; };
+		78F4E58C222C4A790050E32C /* RealmQueryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQueryManager.swift; sourceTree = "<group>"; };
+		78F4E58E222C5A0A0050E32C /* RealmWritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWritesManager.swift; sourceTree = "<group>"; };
+		78F4E590222C5C520050E32C /* FavoriteReposModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteReposModuleInput.swift; sourceTree = "<group>"; };
 		D7DD8FE39AEC8A73B0432649 /* Pods-Stanwood-assignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stanwood-assignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stanwood-assignment/Pods-Stanwood-assignment.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -244,6 +256,10 @@
 		7835C19C2228012800DA74EE /* FavoriteRepos */ = {
 			isa = PBXGroup;
 			children = (
+				78F4E589222AD99A0050E32C /* Models */,
+				78F4E578222AD3630050E32C /* Protocols */,
+				78F4E57A222AD3850050E32C /* Presenter */,
+				78F4E579222AD36D0050E32C /* Views */,
 			);
 			path = FavoriteRepos;
 			sourceTree = "<group>";
@@ -254,7 +270,6 @@
 				7835C19D2228014A00DA74EE /* FetchReposModuleInput.swift */,
 				7835C1A02228018400DA74EE /* FetchReposViewOutput.swift */,
 				7835C1A22228019A00DA74EE /* FetchReposViewInput.swift */,
-				7835C1A4222801BA00DA74EE /* FetchReposViewDataProvider.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -372,8 +387,43 @@
 			isa = PBXGroup;
 			children = (
 				78F4E576222ABCA70050E32C /* RepositoryRealm.swift */,
+				78F4E58C222C4A790050E32C /* RealmQueryManager.swift */,
+				78F4E58E222C5A0A0050E32C /* RealmWritesManager.swift */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		78F4E578222AD3630050E32C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				78F4E590222C5C520050E32C /* FavoriteReposModuleInput.swift */,
+				78F4E57B222AD3B30050E32C /* FavoriteReposViewOutput.swift */,
+				78F4E57D222AD3C70050E32C /* FavoriteReposViewInput.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		78F4E579222AD36D0050E32C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				78F4E581222AD4590050E32C /* FavoriteReposViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		78F4E57A222AD3850050E32C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				78F4E57F222AD4200050E32C /* FavoriteReposPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		78F4E589222AD99A0050E32C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A8F67207862070C827433A22 /* Pods */ = {
@@ -535,6 +585,7 @@
 			files = (
 				7835C1982227FB4800DA74EE /* AppAssembly.swift in Sources */,
 				7835C1C1222818DA00DA74EE /* RepositoryList.swift in Sources */,
+				78F4E591222C5C520050E32C /* FavoriteReposModuleInput.swift in Sources */,
 				7835C1CC222843CF00DA74EE /* SwitcherView.swift in Sources */,
 				7859C801222713BF00505AB8 /* RepositorySearchPayload.swift in Sources */,
 				7835C1A32228019A00DA74EE /* FetchReposViewInput.swift in Sources */,
@@ -551,20 +602,25 @@
 				7835C1962227F97500DA74EE /* AppCoordinator.swift in Sources */,
 				7835C1CE222866CD00DA74EE /* PeriodSelectionView.swift in Sources */,
 				7859C7FF2227139400505AB8 /* Repository.swift in Sources */,
+				78F4E57C222AD3B30050E32C /* FavoriteReposViewOutput.swift in Sources */,
 				78F4E574222AB9020050E32C /* RootTabControllerViewInput.swift in Sources */,
 				7835C1A8222801D200DA74EE /* FetchReposPresenter.swift in Sources */,
+				78F4E58D222C4A790050E32C /* RealmQueryManager.swift in Sources */,
 				78F4E570222AB3270050E32C /* QueryFilter.swift in Sources */,
 				7835C1C722283D9E00DA74EE /* EllipseView.swift in Sources */,
+				78F4E582222AD4590050E32C /* FavoriteReposViewController.swift in Sources */,
 				7835C1DE2228767B00DA74EE /* RootTabControllerViewOutput.swift in Sources */,
-				7835C1A5222801BA00DA74EE /* FetchReposViewDataProvider.swift in Sources */,
 				7835C19E2228014A00DA74EE /* FetchReposModuleInput.swift in Sources */,
 				78F4E577222ABCA70050E32C /* RepositoryRealm.swift in Sources */,
 				7835C1DA2228705300DA74EE /* ReposListModuleInput.swift in Sources */,
 				7835C1BB22280D8700DA74EE /* FetchReposViewController.swift in Sources */,
 				7859C7F72227000B00505AB8 /* NetworkingTransport.swift in Sources */,
 				7835C1C922283F7000DA74EE /* LineView.swift in Sources */,
+				78F4E580222AD4200050E32C /* FavoriteReposPresenter.swift in Sources */,
+				78F4E58F222C5A0A0050E32C /* RealmWritesManager.swift in Sources */,
 				7835C1DC2228744C00DA74EE /* RootTabbarController.swift in Sources */,
 				7835C1D822286D5800DA74EE /* RootTabControllerModule.swift in Sources */,
+				78F4E57E222AD3C70050E32C /* FavoriteReposViewInput.swift in Sources */,
 				78582BFD222A860700CEC75E /* URLResponse+Additions.swift in Sources */,
 				7835C1B5222809D600DA74EE /* ReposListViewInput.swift in Sources */,
 				7859C7F9222700CE00505AB8 /* ReposLoadingService.swift in Sources */,

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol RootTabControllerModuleInput: class {
-    func selectPeriod(_ period: Repository.CreationPeriod)
+    func selectPeriod(_ period: RepositoryPlain.CreationPeriod)
 }

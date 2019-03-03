@@ -32,7 +32,7 @@ extension URLResponse {
 
         let links = linksString.components(separatedBy: ",")
         let linksDictionary = links.reduce([String: String]()) {
-            let components = $1.components(separatedBy:"; ")
+            let components = $1.components(separatedBy: "; ")
             let cleanPath = components[0].trimmingCharacters(in: CharacterSet(charactersIn: "< >"))
             let keyValuePairToAppend = [components[1]: cleanPath]
             return $0.merging(keyValuePairToAppend) { (_, new) in new }

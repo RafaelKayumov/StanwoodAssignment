@@ -17,8 +17,6 @@ class FetchReposPresenter {
     private var queryFilter = QueryFilter()
     private var isLoadingInProgress = false
 
-    private var realmQueue = DispatchQueue(label: "RealmOperations", qos: .userInitiated)
-
     init(reposLoadingService: ReposLoadingService, view: FetchReposViewInput) {
         self.reposLoadingService = reposLoadingService
         self.view = view
@@ -39,7 +37,7 @@ private extension FetchReposPresenter {
 
     func handeFavoriteStatusForRepo(at index: Int, favorite: Bool) {
         guard let repo = repositoryList[index] else { return }
-        realmQueue.async {
+        RealmWritesManager.writeAsync {
             if favorite {
                 RepositoryRealm.save(repo)
             } else {
@@ -54,11 +52,11 @@ private extension FetchReposPresenter {
 private extension FetchReposPresenter {
 
     enum ReposListBatchLoadingOption {
-        case initial(Repository.CreationPeriod)
+        case initial(RepositoryPlain.CreationPeriod)
         case next(URL)
     }
 
-    typealias RepositoryListLoadCompletion = ([Repository]?, Int?, URL?) -> Void
+    typealias RepositoryListLoadCompletion = ([RepositoryPlain]?, Int?, URL?) -> Void
 
     func loadReposListBatch() {
         var option: ReposListBatchLoadingOption
@@ -128,7 +126,7 @@ private extension FetchReposPresenter {
 
 // MARK: Data provider
 
-extension FetchReposPresenter: FetchReposViewDataProvider {
+extension FetchReposPresenter: ReposListViewDataProvider {
     func itemForIndex(_ index: Int) -> Repository? {
         return repositoryList[index]
     }
@@ -167,7 +165,7 @@ extension FetchReposPresenter: FetchReposViewOutput {
 
 extension FetchReposPresenter: FetchReposModuleInput {
 
-    func applyCreationPeriod(_ creationPeriod: Repository.CreationPeriod) {
+    func applyCreationPeriod(_ creationPeriod: RepositoryPlain.CreationPeriod) {
         cancelTasksAndClearRepos()
         queryFilter.creationPeriod = creationPeriod
         loadReposListBatch()

@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AppAssembly {
 
-    private(set) static var fetchReposModule: FetchReposModuleInput?
     private(set) static var rootTabbarControllerModule: RootTabControllerModule?
+    private(set) static var fetchReposModule: FetchReposModuleInput?
+    private(set) static var favoriteReposModule: FavoriteReposModuleInput?
 
     static func instantiateFetchReposModuleAndReturnView() -> UIViewController {
         let fetchReposModuleEntities = assembleFetchReposModule()
@@ -20,7 +22,9 @@ class AppAssembly {
     }
 
     static func instantiateFavoritesReposModuleAndReturnView() -> UIViewController {
-        return UIViewController()
+        let favoriteReposModuleEntities = assembleFavoriteReposModule()
+        favoriteReposModule = favoriteReposModuleEntities.module
+        return favoriteReposModuleEntities.view
     }
 
     static func instantiateRootTabSelector() -> UITabBarController {
@@ -29,8 +33,8 @@ class AppAssembly {
         let rootTabbarController = rootTabbarControllerEntities.view
 
         let reposListView = instantiateFetchReposModuleAndReturnView()
-        //let favoriteReposView = instantiateFavoritesReposModuleAndReturnView()
-        rootTabbarController.viewControllers = [reposListView]
+        let favoriteReposView = instantiateFavoritesReposModuleAndReturnView()
+        rootTabbarController.viewControllers = [reposListView, favoriteReposView]
         return rootTabbarController
     }
 }
@@ -39,6 +43,7 @@ private extension AppAssembly {
 
     static func assembleFetchReposModule() -> (module: FetchReposModuleInput, view: UIViewController) {
         let fetchReposView = FetchReposViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        fetchReposView.title = "Repositories"
         let reposLoadingService = ReposLoadingService()
         let fetchReposPresenter = FetchReposPresenter(reposLoadingService: reposLoadingService, view: fetchReposView)
         fetchReposView.output = fetchReposPresenter
@@ -47,6 +52,19 @@ private extension AppAssembly {
         fetchReposView.applyDefaultSettings()
 
         return (module: fetchReposPresenter, view: fetchReposView)
+    }
+
+    static func assembleFavoriteReposModule() -> (module: FavoriteReposModuleInput, view: UIViewController) {
+        let favoriteReposView = FavoriteReposViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        favoriteReposView.title = "Favorites"
+        let repositoriesRealmQueryManager = RealmQueryManager<FavoriteReposPresenter>(realm: (try? Realm())!)
+        let favoriteReposPresenter = FavoriteReposPresenter(realmQueryManager: repositoriesRealmQueryManager, view: favoriteReposView)
+        repositoriesRealmQueryManager.consumer = favoriteReposPresenter
+        favoriteReposView.output = favoriteReposPresenter
+        favoriteReposView.dataProvider = favoriteReposPresenter
+        favoriteReposView.applyDefaultSettings()
+
+        return (module: favoriteReposPresenter, view: favoriteReposView)
     }
 
     static func assembleRootTabController() -> (module: RootTabControllerModule, view: UITabBarController) {

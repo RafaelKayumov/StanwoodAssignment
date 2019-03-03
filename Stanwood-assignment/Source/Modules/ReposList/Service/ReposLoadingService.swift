@@ -10,7 +10,7 @@ import Foundation
 
 class ReposLoadingService {
 
-    typealias ReposFetchingCompletion = ([Repository]?, Int?, URL?, Error?) -> Void
+    typealias ReposFetchingCompletion = ([RepositoryPlain]?, Int?, URL?, Error?) -> Void
 
     private let transport: NetworkingTransport
     private var dataTask: URLSessionDataTask?
@@ -36,7 +36,7 @@ class ReposLoadingService {
         }
     }
 
-    func fetchMostTrendingForPeriod(_ period: Repository.CreationPeriod, completion: @escaping ReposFetchingCompletion) {
+    func fetchMostTrendingForPeriod(_ period: RepositoryPlain.CreationPeriod, completion: @escaping ReposFetchingCompletion) {
         dataTask = transport.query(Route.list(creationPeriod: period), with: reposResponseDataHandler(with: completion))
     }
 
@@ -61,7 +61,7 @@ private let kDefaultQueryParams = [
 extension ReposLoadingService {
 
     enum Route: RouteProviding {
-        case list(creationPeriod: Repository.CreationPeriod)
+        case list(creationPeriod: RepositoryPlain.CreationPeriod)
 
         var path: String {
             switch self {
@@ -84,28 +84,5 @@ extension ReposLoadingService {
                 return periodQueryParams.merging(kDefaultQueryParams) { (_, new) in new }
             }
         }
-    }
-}
-
-extension Repository.CreationPeriod {
-
-    var calendarInterval: Calendar.Component {
-        switch self {
-        case .day:
-            return Calendar.Component.day
-        case .month:
-            return Calendar.Component.month
-        case .year:
-            return Calendar.Component.year
-        }
-    }
-
-    var thresholdDate: Date {
-        return Calendar.current.date(byAdding: calendarInterval, value: -1, to: Date())!
-    }
-
-    var queryValue: String {
-        let dateString = ISO8601DateFormatter().string(from: thresholdDate)
-        return "created:>" + dateString
     }
 }

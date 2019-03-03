@@ -10,5 +10,5 @@ import Foundation
 
 protocol ReposListModuleInput: class {
 
-    func applyCreationPeriod(_ creationPeriod: Repository.CreationPeriod)
+    func applyCreationPeriod(_ creationPeriod: RepositoryPlain.CreationPeriod)
 }
