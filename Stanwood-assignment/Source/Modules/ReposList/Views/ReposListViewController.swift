@@ -9,12 +9,17 @@
 import UIKit
 
 private let kItemHeight: CGFloat = 72
+private let kNoResultsHeaderHeight: CGFloat = 50
 private let kUpcomingItemCellIdentifier = "UpcomingItemCellIdentifier"
 
 class ReposListViewController: UICollectionViewController {
 
     weak var dataProvider: ReposListViewDataProvider!
     weak var output: ReposListViewOutput!
+
+    private var collectionViewFlowLayout: UICollectionViewFlowLayout? {
+        return collectionViewLayout as? UICollectionViewFlowLayout
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +49,12 @@ extension ReposListViewController {
             return collectionView.dequeueReusableCell(withReuseIdentifier: kUpcomingItemCellIdentifier, for: indexPath)
         }
     }
+
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueHeader(cellType: NoResultsView.self, for: indexPath)
+
+        return headerView
+    }
 }
 
 private extension ReposListViewController {
@@ -55,10 +66,13 @@ private extension ReposListViewController {
     func registerCells() {
         collectionView.register(cellType: RepoCell.self)
         collectionView.register(UINib(nibName: "UpcomingItemCell", bundle: nil), forCellWithReuseIdentifier: kUpcomingItemCellIdentifier)
+        collectionView.register(UINib(nibName: "NoResultsView", bundle: nil),
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: String(describing: NoResultsView.self))
     }
 
     func setupCollectionViewLayout() {
-        guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        guard let flowLayout = collectionViewFlowLayout else { return }
         flowLayout.scrollDirection = .vertical
         flowLayout.itemSize = CGSize(width: view.bounds.width, height: kItemHeight)
         flowLayout.minimumLineSpacing = 0
@@ -67,6 +81,12 @@ private extension ReposListViewController {
 }
 
 extension ReposListViewController: ReposListViewInput {
+
+    func setNoResultsStatusDisplayed(_ displayed: Bool) {
+        guard let flowLayout = collectionViewFlowLayout else { return }
+        let height: CGFloat = displayed ? kNoResultsHeaderHeight : 0
+        flowLayout.headerReferenceSize = CGSize(width: self.collectionView.frame.size.width, height: height)
+    }
 
     func reloadData() {
         reloadTableData()

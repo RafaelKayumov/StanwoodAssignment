@@ -30,11 +30,13 @@ private extension FetchReposPresenter {
     func populateView() {
         DispatchQueue.main.async {
             self.view.reloadData()
+            self.view.setNoResultsStatusDisplayed(self.repositoryList.isEmpty)
         }
     }
 
     func reloadUpcomingViewContent() {
         view.reloadVisibleCells()
+        view.setNoResultsStatusDisplayed(repositoryList.isEmpty)
     }
 
     func handeFavoriteStatusForRepo(at index: Int, favorite: Bool) {

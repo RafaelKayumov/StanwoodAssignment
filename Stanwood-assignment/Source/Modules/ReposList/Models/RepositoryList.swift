@@ -25,6 +25,10 @@ struct RepositoryList {
         totalExisting = 0
     }
 
+    var isEmpty: Bool {
+        return count == 0
+    }
+
     var count: Int {
         return repos.count
     }

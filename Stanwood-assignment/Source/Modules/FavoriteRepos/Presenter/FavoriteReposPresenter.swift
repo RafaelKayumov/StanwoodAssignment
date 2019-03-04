@@ -58,10 +58,12 @@ extension FavoriteReposPresenter: RealmListConsumer {
 
     func consumeCompleteCollection() {
         view.reloadData()
+        view.setNoResultsStatusDisplayed(realmQueryManager.isEmpty)
     }
 
     func consume(deletions: [Int], insertions: [Int], modifications: [Int]) {
         view.consume(deletions: deletions, insertions: insertions, modifications: modifications)
+        view.setNoResultsStatusDisplayed(realmQueryManager.isEmpty)
     }
 }
 

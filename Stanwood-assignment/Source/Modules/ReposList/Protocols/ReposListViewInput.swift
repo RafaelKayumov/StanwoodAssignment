@@ -10,4 +10,5 @@ import Foundation
 
 protocol ReposListViewInput: class {
     func reloadData()
+    func setNoResultsStatusDisplayed(_ displayed: Bool)
 }

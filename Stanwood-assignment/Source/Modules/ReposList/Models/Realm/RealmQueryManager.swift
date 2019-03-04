@@ -28,6 +28,10 @@ class RealmQueryManager<Consumer: RealmListConsumer> {
     private var updatesToken: NotificationToken?
     weak var consumer: Consumer?
 
+    var isEmpty: Bool {
+        return objectsCount == 0
+    }
+
     var objectsCount: Int {
         return results?.count ?? 0
     }
