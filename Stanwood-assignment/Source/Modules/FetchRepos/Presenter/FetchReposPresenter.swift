@@ -53,6 +53,13 @@ private extension FetchReposPresenter {
             self.view.displayLoadingInProgress(self.isLoadingInProgress)
         }
     }
+
+    func reloadCell(forRepoWith id: Int) {
+        guard let cellIndex = repositoryList.index(ofRepoWith: id) else { return }
+        DispatchQueue.main.async {
+            self.view.reloadCell(at: cellIndex)
+        }
+    }
 }
 
 // MARK: Data loading
@@ -200,6 +207,10 @@ extension FetchReposPresenter: FetchReposViewOutput {
 }
 
 extension FetchReposPresenter: FetchReposModuleInput {
+
+    func favoriteStatusChanged(forRepoWith id: Int) {
+        reloadCell(forRepoWith: id)
+    }
 
     func applyCreationPeriod(_ creationPeriod: RepositoryPlain.CreationPeriod) {
         cancelTasksAndClearRepos()

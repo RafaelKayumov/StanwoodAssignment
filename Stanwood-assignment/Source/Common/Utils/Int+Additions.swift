@@ -13,3 +13,15 @@ extension Int {
         return String(format: self >= 1000 ? "%dK" : "%d", (self >= 1000 ? self/1000 : self))
     }
 }
+
+extension Int {
+    var indexPath: IndexPath {
+        return IndexPath(item: self, section: 0)
+    }
+}
+
+extension Array where Element == Int {
+    var indexPaths: [IndexPath] {
+        return map { $0.indexPath }
+    }
+}

@@ -9,4 +9,6 @@
 import Foundation
 
 protocol FetchReposModuleInput: ReposListModuleInput {
+
+    func favoriteStatusChanged(forRepoWith id: Int)
 }

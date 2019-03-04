@@ -33,6 +33,12 @@ struct RepositoryList {
         return totalExisting == count
     }
 
+    func index(ofRepoWith id: Int) -> Int? {
+        return repos.firstIndex {
+            return $0.id == id
+        }
+    }
+
     subscript(index: Int) -> RepositoryPlain? {
         guard repos.indices.contains(index) else { return nil }
         return repos[index]

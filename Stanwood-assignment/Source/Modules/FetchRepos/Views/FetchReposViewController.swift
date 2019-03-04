@@ -42,6 +42,12 @@ extension FetchReposViewController: UICollectionViewDataSourcePrefetching {
 
 extension FetchReposViewController: FetchReposViewInput {
 
+    func reloadCell(at index: Int) {
+        collectionView.performBatchUpdates({
+            self.collectionView.reloadItems(at: [index.indexPath])
+        }, completion: nil)
+    }
+
     func reloadVisibleCells() {
         let visibleCellsIndexes = collectionView.indexPathsForVisibleItems
         if !visibleCellsIndexes.isEmpty {

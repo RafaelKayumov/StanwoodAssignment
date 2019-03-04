@@ -21,8 +21,21 @@ class FavoriteReposPresenter {
 }
 
 private extension FavoriteReposPresenter {
+
     func displayCollectionForCurrentFilter() {
         realmQueryManager.queryAndTrackItems(with: queryFilter)
+    }
+
+    func handeFavoriteStatusForRepo(at index: Int) {
+        guard let repo = realmQueryManager.object(at: index) else { return }
+        let id = repo.id
+        RealmWritesManager.writeAsync {
+            RepositoryRealm.delete(with: id)
+
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                AppAssembly.fetchReposModule?.favoriteStatusChanged(forRepoWith: id)
+            })
+        }
     }
 }
 
@@ -36,6 +49,7 @@ extension FavoriteReposPresenter: FavoriteReposViewOutput {
     }
 
     func repoCell(at index: Int, didToggleFavoriteStateTo value: Bool) {
+        handeFavoriteStatusForRepo(at: index)
     }
 }
 
@@ -47,6 +61,7 @@ extension FavoriteReposPresenter: RealmListConsumer {
     }
 
     func consume(deletions: [Int], insertions: [Int], modifications: [Int]) {
+        view.consume(deletions: deletions, insertions: insertions, modifications: modifications)
     }
 }
 

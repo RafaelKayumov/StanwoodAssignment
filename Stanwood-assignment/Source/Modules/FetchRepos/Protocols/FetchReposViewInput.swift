@@ -9,6 +9,7 @@
 import Foundation
 
 protocol FetchReposViewInput: ReposListViewInput {
+    func reloadCell(at index: Int)
     func reloadVisibleCells()
     func displayLoadingInProgress(_ inProgress: Bool)
 }

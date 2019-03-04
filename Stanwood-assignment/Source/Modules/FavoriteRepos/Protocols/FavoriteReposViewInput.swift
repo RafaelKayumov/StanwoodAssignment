@@ -9,4 +9,5 @@
 import Foundation
 
 protocol FavoriteReposViewInput: ReposListViewInput {
+    func consume(deletions: [Int], insertions: [Int], modifications: [Int])
 }

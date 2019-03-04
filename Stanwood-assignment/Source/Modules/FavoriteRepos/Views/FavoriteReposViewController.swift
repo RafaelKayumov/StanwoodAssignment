@@ -8,9 +8,20 @@
 
 import UIKit
 
-class FavoriteReposViewController: ReposListViewController {
-
-}
+class FavoriteReposViewController: ReposListViewController {}
 
 extension FavoriteReposViewController: FavoriteReposViewInput {
+
+    func consume(deletions: [Int], insertions: [Int], modifications: [Int]) {
+        guard !collectionView.visibleCells.isEmpty else {
+            collectionView.reloadData()
+            return
+        }
+
+        collectionView.performBatchUpdates({
+            collectionView.insertItems(at: insertions.indexPaths)
+            collectionView.deleteItems(at: deletions.indexPaths)
+            collectionView.reloadItems(at: modifications.indexPaths)
+        }, completion: nil)
+    }
 }
