@@ -30,6 +30,6 @@ extension RepositoryDetailsPresenter: RepoDetailsViewOutput {
 
     func onOpenOnGithub() {
         guard let repositoryURL = repositoryURL else { return }
-        AppCoordinator.open(externalUrl: repositoryURL)
+        AppCoordinator.shared.open(externalUrl: repositoryURL)
     }
 }

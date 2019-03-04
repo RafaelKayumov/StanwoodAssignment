@@ -15,6 +15,7 @@ class FetchReposViewController: ReposListViewController {
 
     override func viewDidLoad() {
         stupRefreshControl()
+        tabBarItem.image = UIImage(named: "octoface")
 
         super.viewDidLoad()
         collectionView.prefetchDataSource = self

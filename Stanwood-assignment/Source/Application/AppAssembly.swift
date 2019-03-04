@@ -14,6 +14,7 @@ class AppAssembly {
     private(set) static var rootTabbarControllerModule: RootTabControllerModule?
     private(set) static var fetchReposModule: FetchReposModuleInput?
     private(set) static var favoriteReposModule: FavoriteReposModuleInput?
+    private(set) static var repoDetailsModule: RepositoryDetailsModuleInput?
 
     static func instantiateFetchReposModuleAndReturnView() -> UIViewController {
         let fetchReposModuleEntities = assembleFetchReposModule()
@@ -27,6 +28,12 @@ class AppAssembly {
         return favoriteReposModuleEntities.view
     }
 
+    static func instantiateRepoDetailsModuleAndReturnView() -> RepoDetailsViewController {
+        let repoDetailsModuleEntities = assembleRepoDetailsModule()
+        repoDetailsModule = repoDetailsModuleEntities.module
+        return repoDetailsModuleEntities.view
+    }
+
     static func instantiateRootTabSelector() -> UITabBarController {
         let rootTabbarControllerEntities = assembleRootTabController()
         rootTabbarControllerModule = rootTabbarControllerEntities.module
@@ -38,7 +45,7 @@ class AppAssembly {
         return rootTabbarController
     }
 
-    static func assembleRepoDetailsModule(for repository: Repository) -> (module: RepositoryDetailsModuleInput, view: UIViewController) {
+    static func assembleRepoDetailsModule() -> (module: RepositoryDetailsModuleInput, view: RepoDetailsViewController) {
         let repoDetailsView = UIStoryboard(name: String(describing: RepoDetailsViewController.self), bundle: nil).instantiate(viewController: RepoDetailsViewController.self)
         let repoDetailsPresenter = RepositoryDetailsPresenter(view: repoDetailsView)
         repoDetailsView.output = repoDetailsPresenter

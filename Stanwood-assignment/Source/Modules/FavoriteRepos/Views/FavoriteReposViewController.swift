@@ -8,7 +8,14 @@
 
 import UIKit
 
-class FavoriteReposViewController: ReposListViewController {}
+class FavoriteReposViewController: ReposListViewController {
+
+    override func viewDidLoad() {
+        tabBarItem.image = UIImage(named: "star")
+
+        super.viewDidLoad()
+    }
+}
 
 extension FavoriteReposViewController: FavoriteReposViewInput {
 

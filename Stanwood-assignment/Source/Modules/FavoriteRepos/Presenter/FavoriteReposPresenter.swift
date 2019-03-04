@@ -47,7 +47,7 @@ extension FavoriteReposPresenter: FavoriteReposViewOutput {
 
     func onCellSelectAtIndex(_ index: Int) {
         guard let repository = itemForIndex(index) else { return }
-        AppCoordinator.displayRepositoryDetails(for: repository)
+        AppCoordinator.shared.displayRepositoryDetails(for: repository)
     }
 
     func repoCell(at index: Int, didToggleFavoriteStateTo value: Bool) {

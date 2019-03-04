@@ -9,36 +9,51 @@ import UIKit
 
 class AppCoordinator {
 
-    private(set) static var navigationController: UINavigationController?
-    private(set) static var window: UIWindow?
+    static let shared = AppCoordinator()
 
-    static func setupUI() {
+    private(set) var navigationController: UINavigationController?
+    private(set) var splitViewController: UISplitViewController?
+    private(set) var detailsViewController: RepoDetailsViewController?
+    private(set) var window: UIWindow?
+
+    func setupUI() {
         let window = UIWindow()
         window.backgroundColor = UIColor.white
 
         let rootViewController = prepareRootViewController()
         let navigationController =  UINavigationController(rootViewController: rootViewController)
+        let splitViewController = UISplitViewController()
+        let detailsViewController = AppAssembly.instantiateRepoDetailsModuleAndReturnView()
 
-        window.rootViewController = navigationController
+        splitViewController.viewControllers = [navigationController, detailsViewController]
+        splitViewController.delegate = self
+
+        window.rootViewController = splitViewController
         window.makeKeyAndVisible()
 
         self.navigationController = navigationController
+        self.splitViewController = splitViewController
+        self.detailsViewController = detailsViewController
         self.window = window
     }
 
-    private static func prepareRootViewController() -> UIViewController {
+    private func prepareRootViewController() -> UIViewController {
         return AppAssembly.instantiateRootTabSelector()
     }
 
-    static func displayRepositoryDetails(for repository: Repository) {
-        let moduleEntities = AppAssembly.assembleRepoDetailsModule(for: repository)
-        navigationController?.pushViewController(moduleEntities.view, animated: true)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-            moduleEntities.module.displayRepository(repository)
-        }
+    func displayRepositoryDetails(for repository: Repository) {
+        AppAssembly.repoDetailsModule?.displayRepository(repository)
+        guard let detailsViewController = detailsViewController else { return }
+        splitViewController?.showDetailViewController(detailsViewController, sender: nil)
     }
 
-    static func open(externalUrl: URL) {
+    func open(externalUrl: URL) {
         UIApplication.shared.open(externalUrl, options: [:], completionHandler: nil)
+    }
+}
+
+extension AppCoordinator: UISplitViewControllerDelegate {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return true
     }
 }

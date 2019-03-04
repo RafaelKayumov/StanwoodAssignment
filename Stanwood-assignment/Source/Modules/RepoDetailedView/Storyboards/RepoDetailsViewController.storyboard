@@ -71,6 +71,7 @@
                                 <rect key="frame" x="42" y="728" width="291" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="86g-OI-DnT"/>
                                     <constraint firstAttribute="height" constant="50" id="SVV-sb-1s9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -94,10 +95,11 @@
                         <constraints>
                             <constraint firstItem="ify-BX-5rb" firstAttribute="bottom" secondItem="XwU-Ge-WJk" secondAttribute="bottom" priority="900" id="AbR-Au-AWj"/>
                             <constraint firstItem="zyu-ce-ogy" firstAttribute="top" secondItem="ify-BX-5rb" secondAttribute="top" id="HQp-tM-vAr"/>
-                            <constraint firstItem="ify-BX-5rb" firstAttribute="trailing" secondItem="XwU-Ge-WJk" secondAttribute="trailing" constant="42" id="Ih6-RH-o4l"/>
+                            <constraint firstItem="ify-BX-5rb" firstAttribute="trailing" secondItem="XwU-Ge-WJk" secondAttribute="trailing" priority="900" constant="42" id="Ih6-RH-o4l"/>
                             <constraint firstAttribute="bottom" secondItem="zyu-ce-ogy" secondAttribute="bottom" id="KU7-W6-lOz"/>
                             <constraint firstItem="ify-BX-5rb" firstAttribute="trailing" secondItem="zyu-ce-ogy" secondAttribute="trailing" id="Noj-yw-ww5"/>
-                            <constraint firstItem="XwU-Ge-WJk" firstAttribute="leading" secondItem="ify-BX-5rb" secondAttribute="leading" constant="42" id="WOy-3v-g2h"/>
+                            <constraint firstItem="XwU-Ge-WJk" firstAttribute="leading" secondItem="ify-BX-5rb" secondAttribute="leading" priority="900" constant="42" id="WOy-3v-g2h"/>
+                            <constraint firstItem="XwU-Ge-WJk" firstAttribute="centerX" secondItem="zyu-ce-ogy" secondAttribute="centerX" id="WfN-Ts-6vy"/>
                             <constraint firstItem="zyu-ce-ogy" firstAttribute="leading" secondItem="ify-BX-5rb" secondAttribute="leading" id="b27-q3-LYK"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="XwU-Ge-WJk" secondAttribute="bottom" constant="20" id="leG-Wu-bxj"/>
                         </constraints>

@@ -30,6 +30,11 @@ class ReposListViewController: UICollectionViewController {
 
         output.onViewReady()
     }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateItemSize()
+    }
 }
 
 extension ReposListViewController {
@@ -79,9 +84,13 @@ private extension ReposListViewController {
     func setupCollectionViewLayout() {
         guard let flowLayout = collectionViewFlowLayout else { return }
         flowLayout.scrollDirection = .vertical
-        flowLayout.itemSize = CGSize(width: view.bounds.width, height: kItemHeight)
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
+        updateItemSize()
+    }
+
+    func updateItemSize() {
+        collectionViewFlowLayout?.itemSize = CGSize(width: view.bounds.width, height: kItemHeight)
     }
 }
 

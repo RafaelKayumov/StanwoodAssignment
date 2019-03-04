@@ -19,6 +19,11 @@ class RepoDetailsViewController: UIViewController {
 
     var output: RepoDetailsViewOutput!
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        openRepoButton.isHidden = true
+    }
+
     @IBAction private func onOpenButton() {
         output.onOpenOnGithub()
     }
@@ -51,5 +56,7 @@ extension RepoDetailsViewController: RepoDetailsViewInput {
 
         repositoryProperties = RepositoryProperty.properties(for: repository)
         tableView.reloadData()
+
+        openRepoButton.isHidden = repository.url == nil
     }
 }

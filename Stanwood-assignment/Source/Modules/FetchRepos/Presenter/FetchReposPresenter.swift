@@ -201,7 +201,7 @@ extension FetchReposPresenter: FetchReposViewOutput {
 
     func onCellSelectAtIndex(_ index: Int) {
         guard let repository = repositoryList[index] else { return }
-        AppCoordinator.displayRepositoryDetails(for: repository)
+        AppCoordinator.shared.displayRepositoryDetails(for: repository)
     }
 
     func repoCell(at index: Int, didToggleFavoriteStateTo value: Bool) {
