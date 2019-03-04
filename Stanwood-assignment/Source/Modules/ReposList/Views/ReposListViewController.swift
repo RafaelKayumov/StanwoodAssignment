@@ -55,6 +55,11 @@ extension ReposListViewController {
 
         return headerView
     }
+
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        output.onCellSelectAtIndex(indexPath.item)
+    }
 }
 
 private extension ReposListViewController {

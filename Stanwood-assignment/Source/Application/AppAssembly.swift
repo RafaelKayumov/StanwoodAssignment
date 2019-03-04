@@ -37,6 +37,14 @@ class AppAssembly {
         rootTabbarController.viewControllers = [reposListView, favoriteReposView]
         return rootTabbarController
     }
+
+    static func assembleRepoDetailsModule(for repository: Repository) -> (module: RepositoryDetailsModuleInput, view: UIViewController) {
+        let repoDetailsView = UIStoryboard(name: String(describing: RepoDetailsViewController.self), bundle: nil).instantiate(viewController: RepoDetailsViewController.self)
+        let repoDetailsPresenter = RepositoryDetailsPresenter(view: repoDetailsView)
+        repoDetailsView.output = repoDetailsPresenter
+
+        return (module: repoDetailsPresenter, view: repoDetailsView)
+    }
 }
 
 private extension AppAssembly {
