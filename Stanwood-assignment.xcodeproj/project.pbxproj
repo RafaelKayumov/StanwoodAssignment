@@ -46,6 +46,8 @@
 		78418490222D713900B7199E /* RepositoryDetailsModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7841848F222D713900B7199E /* RepositoryDetailsModuleInput.swift */; };
 		78418492222D72B800B7199E /* RepoDetailsViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78418491222D72B800B7199E /* RepoDetailsViewOutput.swift */; };
 		78418494222D7D4600B7199E /* CorneredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78418493222D7D4600B7199E /* CorneredButton.swift */; };
+		7841849B222D97E600B7199E /* BannerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7841849A222D97E600B7199E /* BannerManager.swift */; };
+		7841849D222D9BC700B7199E /* ReachabilityTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7841849C222D9BC700B7199E /* ReachabilityTracker.swift */; };
 		78582BFD222A860700CEC75E /* URLResponse+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78582BFC222A860700CEC75E /* URLResponse+Additions.swift */; };
 		78582BFF222A8E8800CEC75E /* CreationPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78582BFE222A8E8800CEC75E /* CreationPeriod.swift */; };
 		78582C03222AA09C00CEC75E /* UpcomingItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78582C02222AA09C00CEC75E /* UpcomingItemCell.xib */; };
@@ -113,6 +115,8 @@
 		7841848F222D713900B7199E /* RepositoryDetailsModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsModuleInput.swift; sourceTree = "<group>"; };
 		78418491222D72B800B7199E /* RepoDetailsViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsViewOutput.swift; sourceTree = "<group>"; };
 		78418493222D7D4600B7199E /* CorneredButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CorneredButton.swift; sourceTree = "<group>"; };
+		7841849A222D97E600B7199E /* BannerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerManager.swift; sourceTree = "<group>"; };
+		7841849C222D9BC700B7199E /* ReachabilityTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityTracker.swift; sourceTree = "<group>"; };
 		78582BFC222A860700CEC75E /* URLResponse+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+Additions.swift"; sourceTree = "<group>"; };
 		78582BFE222A8E8800CEC75E /* CreationPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationPeriod.swift; sourceTree = "<group>"; };
 		78582C02222AA09C00CEC75E /* UpcomingItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpcomingItemCell.xib; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 				78100B892226B5BF0006D870 /* AppDelegate.swift */,
 				7835C1952227F97500DA74EE /* AppCoordinator.swift */,
 				7835C1972227FB4800DA74EE /* AppAssembly.swift */,
+				7841849C222D9BC700B7199E /* ReachabilityTracker.swift */,
 				78100B922226B5C00006D870 /* LaunchScreen.storyboard */,
 			);
 			path = Application;
@@ -468,6 +473,7 @@
 				78582BFC222A860700CEC75E /* URLResponse+Additions.swift */,
 				78418484222D6CFA00B7199E /* Date+Format.swift */,
 				78418493222D7D4600B7199E /* CorneredButton.swift */,
+				7841849A222D97E600B7199E /* BannerManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -625,19 +631,25 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Stanwood-assignment/Pods-Stanwood-assignment-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Connectivity/Connectivity.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/QuickLayout/QuickLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/StanwoodCore/StanwoodCore.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Connectivity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StanwoodCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftEntryKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -696,7 +708,9 @@
 				7841848E222D712000B7199E /* RepositoryDetailsPresenter.swift in Sources */,
 				7835C1962227F97500DA74EE /* AppCoordinator.swift in Sources */,
 				7835C1CE222866CD00DA74EE /* PeriodSelectionView.swift in Sources */,
+				7841849B222D97E600B7199E /* BannerManager.swift in Sources */,
 				7859C7FF2227139400505AB8 /* Repository.swift in Sources */,
+				7841849D222D9BC700B7199E /* ReachabilityTracker.swift in Sources */,
 				78F4E57C222AD3B30050E32C /* FavoriteReposViewOutput.swift in Sources */,
 				78F4E574222AB9020050E32C /* RootTabControllerViewInput.swift in Sources */,
 				7835C1A8222801D200DA74EE /* FetchReposPresenter.swift in Sources */,

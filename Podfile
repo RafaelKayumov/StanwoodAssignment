@@ -10,6 +10,8 @@ def install_pods
     pod 'SwiftLint'
     pod 'Kingfisher'
     pod 'RealmSwift'
+    pod 'Connectivity'
+    pod 'SwiftEntryKit'
 end
 
 target 'Stanwood-assignment' do
