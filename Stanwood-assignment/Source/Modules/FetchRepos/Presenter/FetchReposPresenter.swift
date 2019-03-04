@@ -28,7 +28,9 @@ class FetchReposPresenter {
 private extension FetchReposPresenter {
 
     func populateView() {
-        view.reloadData()
+        DispatchQueue.main.async {
+            self.view.reloadData()
+        }
     }
 
     func reloadUpcomingViewContent() {
@@ -45,6 +47,12 @@ private extension FetchReposPresenter {
             }
         }
     }
+
+    func displayLoadingProgressInView() {
+        DispatchQueue.main.async {
+            self.view.displayLoadingInProgress(self.isLoadingInProgress)
+        }
+    }
 }
 
 // MARK: Data loading
@@ -57,6 +65,22 @@ private extension FetchReposPresenter {
     }
 
     typealias RepositoryListLoadCompletion = ([RepositoryPlain]?, Int?, URL?) -> Void
+
+    func reloadFromBegining() {
+        loadReposListBatch(with: .initial(queryFilter.creationPeriod)) { repos, totalExisting, nextPageURL in
+            guard let validRepos = repos else { return }
+
+            self.repositoryList.clear()
+            self.repositoryList.applyReposBatch(validRepos, nextPageURL: nextPageURL)
+            if let totalExistingValid = totalExisting {
+                self.repositoryList.totalExisting = totalExistingValid
+            }
+
+            DispatchQueue.main.async {
+                self.populateView()
+            }
+        }
+    }
 
     func loadReposListBatch() {
         var option: ReposListBatchLoadingOption
@@ -72,11 +96,12 @@ private extension FetchReposPresenter {
         loadReposListBatch(with: option) { repos, totalExisting, nextPageURL in
             guard let validRepos = repos else { return }
 
+            self.repositoryList.applyReposBatch(validRepos, nextPageURL: nextPageURL)
+            if case .initial = option, let totalExistingValid = totalExisting {
+                self.repositoryList.totalExisting = totalExistingValid
+            }
+
             DispatchQueue.main.async {
-                self.repositoryList.applyReposBatch(validRepos, nextPageURL: nextPageURL)
-                if case .initial = option, let totalExistingValid = totalExisting {
-                    self.repositoryList.totalExisting = totalExistingValid
-                }
                 displayFunction()
             }
         }
@@ -85,10 +110,12 @@ private extension FetchReposPresenter {
     func loadReposListBatch(with option: ReposListBatchLoadingOption, completion: @escaping RepositoryListLoadCompletion) {
         let loadingCompletion: ReposLoadingService.ReposFetchingCompletion = { repos, totalExisting, nextPageURL, _ in
             self.isLoadingInProgress = false
+            self.displayLoadingProgressInView()
             completion(repos, totalExisting, nextPageURL)
         }
 
         isLoadingInProgress = true
+        displayLoadingProgressInView()
         switch option {
         case .initial(let period):
             reposLoadingService.fetchMostTrendingForPeriod(period, completion: loadingCompletion)
@@ -154,6 +181,10 @@ extension FetchReposPresenter: FetchReposViewOutput {
         AppAssembly.rootTabbarControllerModule?.selectPeriod(queryFilter.creationPeriod)
     }
 
+    func didTriggerRefresh() {
+        reloadFromBegining()
+    }
+
     func onCellSelectAtIndex(_ index: Int) {
 
     }
@@ -168,6 +199,6 @@ extension FetchReposPresenter: FetchReposModuleInput {
     func applyCreationPeriod(_ creationPeriod: RepositoryPlain.CreationPeriod) {
         cancelTasksAndClearRepos()
         queryFilter.creationPeriod = creationPeriod
-        loadReposListBatch()
+        self.loadReposListBatch()
     }
 }

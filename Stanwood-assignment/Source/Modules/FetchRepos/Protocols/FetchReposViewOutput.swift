@@ -9,6 +9,7 @@
 import Foundation
 
 protocol FetchReposViewOutput: ReposListViewOutput {
+    func didTriggerRefresh()
 }
 
 protocol PrefetchingOutput: class {

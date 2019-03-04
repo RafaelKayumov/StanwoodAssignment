@@ -14,8 +14,22 @@ class FetchReposViewController: ReposListViewController {
     weak var prefetchingOutput: PrefetchingOutput!
 
     override func viewDidLoad() {
+        stupRefreshControl()
+
         super.viewDidLoad()
         collectionView.prefetchDataSource = self
+    }
+}
+
+private extension FetchReposViewController {
+
+    func stupRefreshControl() {
+        refreshControl = collectionView.setRefreshControl(self, with: #selector(onRefreshControl), tintColor: UIColor.darkGray)
+        collectionView.alwaysBounceVertical = true
+    }
+
+    @objc func onRefreshControl() {
+        (output as? FetchReposViewOutput)?.didTriggerRefresh()
     }
 }
 
@@ -27,12 +41,23 @@ extension FetchReposViewController: UICollectionViewDataSourcePrefetching {
 }
 
 extension FetchReposViewController: FetchReposViewInput {
+
     func reloadVisibleCells() {
         let visibleCellsIndexes = collectionView.indexPathsForVisibleItems
         if !visibleCellsIndexes.isEmpty {
-            collectionView.reloadItems(at: visibleCellsIndexes)
+            collectionView.performBatchUpdates({
+                self.collectionView.reloadItems(at: visibleCellsIndexes)
+            }, completion: nil)
         } else {
             collectionView.reloadData()
+        }
+    }
+
+    func displayLoadingInProgress(_ inProgress: Bool) {
+        if inProgress {
+            refreshControl.beginRefreshing()
+        } else {
+            refreshControl.endRefreshing()
         }
     }
 }
