@@ -33,10 +33,11 @@ class RepoCell: UICollectionViewCell {
     @IBOutlet private weak var stargazersLabel: UILabel!
     weak var delegate: RepoCellDelegate?
 
-    func configureWithRepo(_ repo: Repository) {
+    func configureWithRepo(_ repo: Repository, favorite: Bool = false) {
         titleLabel.text = repo.displayTitle
         descriptionLabel.text = repo.repoDescription
         stargazersLabel.text = repo.displayStargazersText
+        favoriteIndicator.stateEnabled = favorite
 
         avatarImageView.image = nil
         if let ownerAvatarURL = repo.owner?.avatarURL {

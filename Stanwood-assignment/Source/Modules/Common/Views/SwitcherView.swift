@@ -18,7 +18,7 @@ class SwitcherImageView: UIImageView {
     @IBInspectable var disabledStateImage: UIImage?
     @IBOutlet weak var delegate: SwitcherImageViewDelegate?
 
-    private(set) var stateEnabled = false {
+    var stateEnabled = false {
         didSet {
             setupImageForCurrentSate()
         }

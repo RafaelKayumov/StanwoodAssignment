@@ -8,4 +8,4 @@
 
 import Foundation
 
-protocol FavoriteReposModuleInput: class {}
+protocol FavoriteReposModuleInput: ReposListModuleInput {}

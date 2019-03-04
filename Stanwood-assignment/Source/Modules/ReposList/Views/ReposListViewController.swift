@@ -18,6 +18,7 @@ class ReposListViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.alwaysBounceVertical = true
 
         registerCells()
         setupCollectionViewLayout()
@@ -35,7 +36,8 @@ extension ReposListViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let repository = dataProvider.itemForIndex(indexPath.item) {
             let cell = collectionView.dequeue(cellType: RepoCell.self, for: indexPath)
-            cell.configureWithRepo(repository)
+            let persisted = dataProvider.itemIsPersistedForIndex(indexPath.item)
+            cell.configureWithRepo(repository, favorite: persisted)
             cell.delegate = self
             return cell
         } else {

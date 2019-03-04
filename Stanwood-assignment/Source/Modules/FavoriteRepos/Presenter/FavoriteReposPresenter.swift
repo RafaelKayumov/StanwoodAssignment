@@ -51,6 +51,10 @@ extension FavoriteReposPresenter: RealmListConsumer {
 }
 
 extension FavoriteReposPresenter: ReposListViewDataProvider {
+    func itemIsPersistedForIndex(_ index: Int) -> Bool {
+        return true
+    }
+
     func itemForIndex(_ index: Int) -> Repository? {
         return realmQueryManager.object(at: index)
     }
@@ -61,4 +65,9 @@ extension FavoriteReposPresenter: ReposListViewDataProvider {
 }
 
 extension FavoriteReposPresenter: FavoriteReposModuleInput {
+
+    func applyCreationPeriod(_ creationPeriod: RepositoryPlain.CreationPeriod) {
+        queryFilter.creationPeriod = creationPeriod
+        displayCollectionForCurrentFilter()
+    }
 }

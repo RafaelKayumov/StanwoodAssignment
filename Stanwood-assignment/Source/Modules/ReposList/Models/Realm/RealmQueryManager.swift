@@ -43,7 +43,7 @@ class RealmQueryManager<Consumer: RealmListConsumer> {
     func queryAndTrackItems(with filter: QueryFilter) {
         let query = filter.realmQueryFormatAndArguments
         let predicate = NSPredicate(format: query.format, argumentArray: query.arguments)
-        results = realm.objects(RealmObject.self).sorted(by: kDefaultSortDescriptors)
+        results = realm.objects(RealmObject.self).filter(predicate).sorted(by: kDefaultSortDescriptors)
         registerForUpdates()
     }
 

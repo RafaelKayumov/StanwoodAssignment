@@ -154,6 +154,11 @@ private extension FetchReposPresenter {
 // MARK: Data provider
 
 extension FetchReposPresenter: ReposListViewDataProvider {
+    func itemIsPersistedForIndex(_ index: Int) -> Bool {
+        guard let repo = repositoryList[index] else { return false }
+        return RepositoryRealm.containsObject(with: repo.id)
+    }
+
     func itemForIndex(_ index: Int) -> Repository? {
         return repositoryList[index]
     }

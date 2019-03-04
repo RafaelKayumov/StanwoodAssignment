@@ -11,5 +11,6 @@ import Foundation
 protocol ReposListViewDataProvider: class {
 
     func itemForIndex(_ index: Int) -> Repository?
+    func itemIsPersistedForIndex(_ index: Int) -> Bool
     var totalItemsCount: Int { get }
 }

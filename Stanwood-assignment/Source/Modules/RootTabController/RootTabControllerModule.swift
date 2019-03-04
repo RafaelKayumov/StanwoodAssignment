@@ -18,6 +18,7 @@ class RootTabControllerModule: RootTabControllerViewOutput {
 
     func onPeriodSelection(period: RepositoryPlain.CreationPeriod) {
         AppAssembly.fetchReposModule?.applyCreationPeriod(period)
+        AppAssembly.favoriteReposModule?.applyCreationPeriod(period)
     }
 }
 
