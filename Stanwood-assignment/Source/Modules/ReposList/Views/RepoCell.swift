@@ -43,7 +43,7 @@ class RepoCell: UICollectionViewCell {
         if let ownerAvatarURL = repo.owner?.avatarURL {
             avatarImageView.kf.setImage(
                 with: ownerAvatarURL,
-                placeholder: nil,
+                placeholder: UIImage(named: "avatarPlaceholder"),
                 options: [
                     .cacheOriginalImage
                 ])
