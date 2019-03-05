@@ -95,7 +95,7 @@ API pagination is implemented for `FetchRepos` list. `UICollectionViewDataSource
 - Search for both lists - Might be implemented with `UISearchController`, Github API filtering and Realm filtering. Repository `search by text` predicate is implemented for Realm, but not used.
 - Swipe cell to delete favorite repository - swipe cell behavior is not supported natively for collection views.
 - Languages set in repository details - managed to display only main language of repository instead. Languages set and percentages are accessible by distinct url. That requires an additional request to perform for each repo. 
-- Proper auth token storage - In scope of test task just hardcoded Github API token. In general case the token is acquired during auth process and stored in keychain.
+- Proper auth token storage - In scope of test task just hardcoded Github API token placeholder. Used personal token during development. The empty placeholder is pushed to Github. In general case the token is acquired during auth process and stored in keychain.
 - Localizations - omitted localizations in scope of test task.
 - Persisted repositories refresh - Persisted repositories stay as is even after `FetchRepos` list refreshes data. They may be refreshed only by re-adding.
 - `incompleteResults` property of Github search API response is not handled.
